@@ -802,9 +802,18 @@ strong {
 .content blockquote {
   margin: 16px 0;
   padding: 12px 16px;
-  border-left: 3px solid var(--border);
-  background: var(--soft-2);
+  border-left: 3px solid #8a5cf5;
+  background: #f2edff;
   color: var(--muted);
+}
+
+body.is-home .content img:first-of-type {
+  width: 200px;
+  max-width: 200px;
+  display: block;
+  margin: 0 0 16px 0;
+  border: 0;
+  border-radius: 0;
 }
 
 .callout {
