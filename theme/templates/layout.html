@@ -403,7 +403,7 @@
           {{- end }}
         </ul>
         <div class="sidebar-cta-wrap">
-          <a class="sidebar-cta" href="{{ printf "%sstarter-kit/" $.BaseURL }}">→ Шаблон Starter Kit</a>
+          <a class="sidebar-cta" href="{{ printf "%sstarter-kit/" $homePath }}">→ Шаблон Starter Kit</a>
         </div>
       </nav>
     </div>
@@ -497,7 +497,7 @@
           {{- end }}
         </ul>
         <div class="sidebar-cta-wrap">
-          <a class="sidebar-cta" href="{{ printf "%sstarter-kit/" $.BaseURL }}">→ Шаблон Starter Kit</a>
+          <a class="sidebar-cta" href="{{ printf "%sstarter-kit/" $homePath }}">→ Шаблон Starter Kit</a>
         </div>
       </aside>
       <div class="content-area">
@@ -529,7 +529,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span class="footer-built muted">Этот сайт сделан из Obsidian с помощью <a href="{{ printf "%sobsidian-website-hub/" $.BaseURL }}">Notepub</a></span>
+      <span class="footer-built muted">Этот сайт сделан из Obsidian с помощью <a href="{{ printf "%sobsidian-website-hub/" $homePath }}">Notepub</a></span>
     </div>
   </footer>
   <script src="{{ .AssetsBase }}/main.js"></script>
