@@ -211,7 +211,17 @@
             {{- $hubParents := (index $hub.FM "hub") }}
             {{- if not $hubParents }}
             <li class="sidebar-group">
-              <a class="hub-link {{ if eq $hub.Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $hub.Path }}">{{ $hub.Title }}</a>
+              {{- $hubIsActive := eq $hub.Slug $.Page.Slug }}
+              {{- if $groups }}
+                {{- range $groups }}
+                  {{- if eq .Key $hub.Slug }}
+                    {{- range .Items }}
+                      {{- if eq .Slug $.Page.Slug }}{{- $hubIsActive = true }}{{- end }}
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+              <a class="hub-link {{ if $hubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $hub.Path }}">{{ $hub.Title }}</a>
               <ul class="sidebar-sublist">
                 {{- if $groups }}
                   {{- range $groups }}
@@ -229,7 +239,18 @@
                     {{- range $childParents }}
                       {{- if eq . $hub.Slug }}
                       <li class="sidebar-group">
-                        <a class="hub-link {{ if eq $childHub.Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $childHub.Path }}">{{ $childHub.Title }}</a>
+                        {{- $childHubIsActive := eq $childHub.Slug $.Page.Slug }}
+                        {{- if $groups }}
+                          {{- range $groups }}
+                            {{- if eq .Key $childHub.Slug }}
+                              {{- range .Items }}
+                                {{- if eq .Slug $.Page.Slug }}{{- $childHubIsActive = true }}{{- end }}
+                              {{- end }}
+                            {{- end }}
+                          {{- end }}
+                        {{- end }}
+                        {{- if $childHubIsActive }}{{- $hubIsActive = true }}{{- end }}
+                        <a class="hub-link {{ if $childHubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $childHub.Path }}">{{ $childHub.Title }}</a>
                         {{- if $groups }}
                         <ul class="sidebar-sublist">
                           {{- range $groups }}
@@ -279,7 +300,17 @@
             {{- $hubParents := (index $hub.FM "hub") }}
             {{- if not $hubParents }}
             <li class="sidebar-group">
-              <a class="hub-link {{ if eq $hub.Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $hub.Path }}">{{ $hub.Title }}</a>
+              {{- $hubIsActive := eq $hub.Slug $.Page.Slug }}
+              {{- if $groups }}
+                {{- range $groups }}
+                  {{- if eq .Key $hub.Slug }}
+                    {{- range .Items }}
+                      {{- if eq .Slug $.Page.Slug }}{{- $hubIsActive = true }}{{- end }}
+                    {{- end }}
+                  {{- end }}
+                {{- end }}
+              {{- end }}
+              <a class="hub-link {{ if $hubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $hub.Path }}">{{ $hub.Title }}</a>
               <ul class="sidebar-sublist">
                 {{- if $groups }}
                   {{- range $groups }}
@@ -297,7 +328,18 @@
                     {{- range $childParents }}
                       {{- if eq . $hub.Slug }}
                       <li class="sidebar-group">
-                        <a class="hub-link {{ if eq $childHub.Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $childHub.Path }}">{{ $childHub.Title }}</a>
+                        {{- $childHubIsActive := eq $childHub.Slug $.Page.Slug }}
+                        {{- if $groups }}
+                          {{- range $groups }}
+                            {{- if eq .Key $childHub.Slug }}
+                              {{- range .Items }}
+                                {{- if eq .Slug $.Page.Slug }}{{- $childHubIsActive = true }}{{- end }}
+                              {{- end }}
+                            {{- end }}
+                          {{- end }}
+                        {{- end }}
+                        {{- if $childHubIsActive }}{{- $hubIsActive = true }}{{- end }}
+                        <a class="hub-link {{ if $childHubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $childHub.Path }}">{{ $childHub.Title }}</a>
                         {{- if $groups }}
                         <ul class="sidebar-sublist">
                           {{- range $groups }}

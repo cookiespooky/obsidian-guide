@@ -145,6 +145,16 @@ a:hover {
 }
 
 .sidebar-list a.is-active {
+  background: transparent;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.sidebar-list a.hub-link.is-active {
+  background: var(--soft);
+}
+
+.sidebar-group:has(> .sidebar-sublist a.is-active) > a.hub-link {
   background: var(--soft);
   color: var(--fg);
   font-weight: 600;
@@ -1457,6 +1467,10 @@ body.nav-locked {
 .sidebar-list a.hub-link::before {
   content: "▾";
   font-size: 11px;
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  flex: 0 0 20px;
   line-height: 1;
   color: var(--muted-2);
   transform: translateY(-1px);
