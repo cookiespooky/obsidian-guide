@@ -53,8 +53,14 @@
     state.input.addEventListener('keydown', onKeyDown);
 
     var initial = state.input.value.trim();
+    if (!initial) {
+      initial = getQueryFromURL();
+      if (initial) state.input.value = initial;
+    }
     if (initial.length >= 2) {
       search(initial);
+    } else {
+      updateSummary(initial, 0);
     }
   }
 
@@ -138,7 +144,7 @@
   function searchServer(q) {
     if (state.abort) state.abort.abort();
     state.abort = new AbortController();
-    setStatus('Loading...');
+    setStatus('Загрузка...');
     fetch(withBasePath('/v1/search') + '?q=' + encodeURIComponent(q) + '&limit=10', {
       signal: state.abort.signal,
       headers: { 'Accept': 'application/json' }
@@ -151,16 +157,16 @@
         renderAutocomplete(items);
         renderPageResults(items);
         updateSummary(q, items.length);
-        setStatus(items.length ? '' : 'No results');
+        setStatus(items.length ? '' : 'Ничего не найдено');
       })
       .catch(function(err) {
         if (err && err.name === 'AbortError') return;
-        setStatus('Error loading results');
+        setStatus('Ошибка загрузки результатов');
       });
   }
 
   function searchStatic(q) {
-    setStatus('Loading...');
+    setStatus('Загрузка...');
     var items = Array.isArray(state.staticItems) ? state.staticItems : [];
     var query = q.toLowerCase();
     var matches = [];
@@ -180,7 +186,7 @@
     renderAutocomplete(top);
     renderPageResults(top);
     updateSummary(q, matches.length);
-    setStatus(top.length ? '' : 'No results');
+    setStatus(top.length ? '' : 'Ничего не найдено');
   }
 
   function renderAutocomplete(items) {
@@ -282,7 +288,7 @@
       state.summary.textContent = '';
       return;
     }
-    state.summary.textContent = 'Query: ' + q + ' (' + count + ')';
+    state.summary.textContent = 'Запрос: ' + q + ' (' + count + ')';
   }
 
   function setStatus(text) {
@@ -291,8 +297,17 @@
 
   function updateHistory(q) {
     if (!window.history || !window.history.replaceState) return;
-    var url = q ? withBasePath('/search?q=' + encodeURIComponent(q)) : withBasePath('/search');
+    var url = q ? withBasePath('/search/?q=' + encodeURIComponent(q)) : withBasePath('/search/');
     window.history.replaceState({}, '', url);
+  }
+
+  function getQueryFromURL() {
+    try {
+      var params = new URLSearchParams(window.location.search || '');
+      return (params.get('q') || '').trim();
+    } catch (_err) {
+      return '';
+    }
   }
 
   window.NotepubSearchPage = { init: init };

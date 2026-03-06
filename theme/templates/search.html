@@ -1,14 +1,15 @@
+{{- $homePath := printf "%s/" .BaseURL -}}
 <section class="section search-page">
-  <h1 class="section-title">Search</h1>
-  <form class="np-search-page-form" method="get" action="{{ .BaseURL }}/search">
-    <input type="search" name="q" value="{{ .SearchQuery }}" placeholder="Search documentation" autocomplete="off" />
+  <h1 class="section-title">Поиск</h1>
+  <form class="np-search-page-form" method="get" action="{{ printf "%ssearch/" $homePath }}">
+    <input type="search" name="q" value="{{ .SearchQuery }}" placeholder="Поиск по гайду" autocomplete="off" />
   </form>
 
   <div class="np-search-status" aria-live="polite"></div>
   <div class="np-search-results" role="listbox"></div>
 
   {{- if .SearchQuery }}
-  <p class="np-search-summary">Query: {{ .SearchQuery }}</p>
+  <p class="np-search-summary">Запрос: {{ .SearchQuery }}</p>
   {{- end }}
 
   {{- if .SearchItems }}
@@ -23,11 +24,11 @@
     {{- end }}
   </ul>
   {{- else if .SearchQuery }}
-  <p class="np-search-empty">No results found.</p>
+  <p class="np-search-empty">Ничего не найдено.</p>
   {{- end }}
 
   {{- if .SearchNextCursor }}
-  <a class="np-search-more" href="{{ .BaseURL }}/search?q={{ .SearchQuery }}&cursor={{ .SearchNextCursor }}">Next page</a>
+  <a class="np-search-more" href="{{ printf "%ssearch/?q=%s&cursor=%s" $homePath .SearchQuery .SearchNextCursor }}">Следующая страница</a>
   {{- end }}
 </section>
 <script>

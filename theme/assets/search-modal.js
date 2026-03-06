@@ -91,7 +91,7 @@
   function onInput() {
     if (!state.input) return;
     var q = state.input.value.trim();
-    if (state.allLink) state.allLink.href = q ? withBasePath('/search?q=' + encodeURIComponent(q)) : withBasePath('/search');
+    if (state.allLink) state.allLink.href = q ? withBasePath('/search/?q=' + encodeURIComponent(q)) : withBasePath('/search/');
     if (q.length < 2) {
       clearResults();
       setStatus('');
@@ -148,7 +148,7 @@
   }
 
   function searchServer(q) {
-    setStatus('Loading...');
+    setStatus('Загрузка...');
     fetch(state.endpoint + '?q=' + encodeURIComponent(q) + '&limit=8', {
       headers: { 'Accept': 'application/json' }
     })
@@ -157,16 +157,16 @@
         state.items = Array.isArray(data.items) ? data.items : [];
         state.selected = -1;
         renderResults();
-        setStatus(state.items.length ? '' : 'No results');
+        setStatus(state.items.length ? '' : 'Ничего не найдено');
       })
       .catch(function() {
-        setStatus('Error loading results');
+        setStatus('Ошибка загрузки результатов');
         clearResults();
       });
   }
 
   function searchStatic(q) {
-    setStatus('Loading...');
+    setStatus('Загрузка...');
     var items = Array.isArray(state.staticItems) ? state.staticItems : [];
     var query = q.toLowerCase();
     var matches = [];
@@ -180,7 +180,7 @@
     state.items = matches.slice(0, 8);
     state.selected = -1;
     renderResults();
-    setStatus(state.items.length ? '' : 'No results');
+    setStatus(state.items.length ? '' : 'Ничего не найдено');
   }
 
   function onKeyDown(e) {
