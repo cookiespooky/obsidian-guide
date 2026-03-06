@@ -1,11 +1,5 @@
 {{- $related := .Collections.related_pages.Items -}}
 <article class="content">
-  <div class="page-hero">
-    <h1>{{ .Title }}</h1>
-    {{- if .Page.Description }}
-    <p class="lead">{{ .Page.Description }}</p>
-    {{- end }}
-  </div>
   {{ .Body }}
 </article>
 

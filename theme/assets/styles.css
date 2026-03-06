@@ -71,7 +71,7 @@ a:hover {
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 12px 0;
+  padding: 12px 12px;
   border-right: 1px solid var(--border);
 }
 
@@ -131,6 +131,8 @@ a:hover {
 
 .sidebar-list a {
   display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 6px 8px;
   border-radius: 8px;
   color: var(--muted);
@@ -1445,4 +1447,12 @@ body.nav-locked {
     border-left: 0;
     padding-left: 0;
   }
+}
+
+.sidebar-list a.hub-link::before {
+  content: "▾";
+  font-size: 11px;
+  line-height: 1;
+  color: var(--muted-2);
+  transform: translateY(-1px);
 }
