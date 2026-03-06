@@ -1,7 +1,7 @@
 ---
 type: article
 slug: vault-structure
-title: Структура vault в Obsidian — как организовать заметки
+title: Структура хранилища
 description: Простая структура vault для Obsidian. Минимальная система папок, которая не превращается в хаос.
 hub:
   - "[[guide-hub]]"
@@ -13,7 +13,7 @@ tags:
 draft: false
 noindex: false
 ---
-	# Структура vault в Obsidian  
+	# Структура vault в Obsidian — как организовать заметки
   
 Когда люди начинают использовать Obsidian, почти всегда возникает один и тот же вопрос:  
   

@@ -1,7 +1,7 @@
 ---
 type: article
 slug: personal-knowledge-system
-title: Personal knowledge system
+title: PKM
 description: Как собрать персональную систему знаний в Obsidian.
 hub:
   - "[[methods-hub]]"

@@ -1,7 +1,7 @@
 ---
 type: article
 slug: daily-notes
-title: Daily Notes в Obsidian — как использовать ежедневные заметки
+title: Ежедневные заметки
 description: Как работают Daily Notes в Obsidian и зачем они нужны. Простой способ фиксировать мысли, события и идеи каждый день.
 hub:
   - "[[guide-hub]]"

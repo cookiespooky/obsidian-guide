@@ -1,7 +1,7 @@
 ---
 type: hub
 slug: plugins-hub
-title: Плагины Obsidian — какие стоит установить
+title: Плагины
 description: Какие плагины Obsidian действительно полезны. Минимальный набор плагинов для начала работы.
 order: 20
 tags:
@@ -10,7 +10,7 @@ tags:
 draft: false
 noindex: false
 ---
-# Плагины Obsidian  
+# Плагины Obsidian
   
 Obsidian можно расширять с помощью **плагинов**.  
   

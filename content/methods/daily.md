@@ -1,7 +1,7 @@
 ---
 type: article
 slug: daily-notes-workflow-method
-title: Daily Notes workflow
+title: Daily Notes
 description: Ежедневный workflow на базе Daily Notes в Obsidian.
 hub:
   - "[[methods-hub]]"

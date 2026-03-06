@@ -1,7 +1,7 @@
 ---
 type: article
 slug: markdown-tips
-title: "Markdown для Obsidian: базовые приемы"
+title: "Markdown: основные приемы"
 description: Практический минимум Markdown, который нужен каждый день в Obsidian.
 hub:
   - "[[guide-hub]]"

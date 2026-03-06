@@ -1,8 +1,8 @@
 ---
 type: hub
 slug: obsidian-website-hub
-title: Как превратить Obsidian vault в сайт
-description: Практический разбор публикации Obsidian vault как сайта с Notepub.
+title: Сайт из Obsidian
+description: Практический разбор публикации Obsidian vault как сайта с помощью Notepub.
 order: 40
 tags:
   - "obsidian"
@@ -10,3 +10,5 @@ tags:
 draft: false
 noindex: false
 ---
+
+# Как превратить Obsidian vault в сайт

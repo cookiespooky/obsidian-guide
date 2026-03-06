@@ -1,7 +1,7 @@
 ---
 type: hub
 slug: plugins-community-hub
-title: Community plugins в Obsidian
+title: Плагины сообщества
 description: Подборка полезных community-плагинов Obsidian для повседневной работы.
 hub:
   - "[[plugins-hub]]"

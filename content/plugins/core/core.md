@@ -1,7 +1,7 @@
 ---
 type: hub
 slug: plugins-core-hub
-title: Core plugins в Obsidian
+title: Стандартные плагины
 description: Базовые встроенные плагины Obsidian, которые стоит настроить в первую очередь.
 hub:
   - "[[plugins-hub]]"
