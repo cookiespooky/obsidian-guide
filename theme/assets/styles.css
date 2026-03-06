@@ -160,6 +160,15 @@ a:hover {
   font-weight: 600;
 }
 
+.sidebar-group.hub-group > .hub-link + .sidebar-sublist {
+  display: none;
+}
+
+.sidebar-group.hub-group.hub-open > .hub-link + .sidebar-sublist,
+.sidebar-group.hub-group:has(> .sidebar-sublist a.is-active) > .hub-link + .sidebar-sublist {
+  display: block;
+}
+
 .sidebar-group {
   margin: 8px 0;
 }
@@ -1466,11 +1475,9 @@ body.nav-locked {
 
 .sidebar-list a.hub-link::before {
   content: "▾";
-  font-size: 11px;
+  font-size: 20px;
   display: inline-block;
-  width: 20px;
   text-align: center;
-  flex: 0 0 20px;
   line-height: 1;
   color: var(--muted-2);
   transform: translateY(-1px);
