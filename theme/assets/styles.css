@@ -714,6 +714,11 @@ strong {
 
 .content p {
   color: var(--fg);
+  white-space: pre-line;
+}
+
+.content li {
+  white-space: pre-line;
 }
 
 .content a {
