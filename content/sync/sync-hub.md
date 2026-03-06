@@ -3,9 +3,7 @@ type: hub
 slug: sync
 title: Синхронизация
 description: "Как синхронизировать Obsidian между компьютером, телефоном и планшетом. Все основные способы: Obsidian Sync, WebDAV, Git и S3."
-hub:
-  - "[[guide-hub]]"
-order: 90
+order: 30
 tags:
   - "obsidian"
   - "guide"

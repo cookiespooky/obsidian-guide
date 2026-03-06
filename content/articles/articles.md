@@ -3,7 +3,7 @@ type: hub
 slug: articles-hub
 title: Статьи по Obsidian
 description: Статьи про Obsidian
-order: 60
+order: 70
 tags:
   - "obsidian"
   - "article"

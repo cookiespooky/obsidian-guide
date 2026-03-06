@@ -1,7 +1,7 @@
 ---
 type: article
 slug: quick-start
-title: Быстрый старт в Obsidian за 15 минут
+title: Быстрый старт за 10 минут
 description: Как установить Obsidian, создать первый vault и начать писать заметки. Самый быстрый способ начать работать с Obsidian без лишних настроек.
 hub:
   - "[[guide-hub]]"

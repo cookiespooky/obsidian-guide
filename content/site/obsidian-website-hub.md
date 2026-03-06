@@ -3,7 +3,7 @@ type: hub
 slug: obsidian-website-hub
 title: Сайт из Obsidian
 description: Практический разбор публикации Obsidian vault как сайта с помощью Notepub.
-order: 40
+order: 50
 tags:
   - "obsidian"
   - "notepub"
