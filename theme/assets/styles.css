@@ -757,6 +757,12 @@ strong {
   margin-top: 28px;
 }
 
+.content hr {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
 .content p {
   color: var(--fg);
   white-space: pre-line;
