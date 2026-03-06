@@ -324,7 +324,7 @@
             <a class="{{ if eq $.Page.Type "home" }}is-active{{ end }}" href="{{ $homePath }}">{{ $docsTitle }}</a>
           </li>
           <li class="sidebar-group">
-            <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $.BaseURL }}">Быстрый старт</a>
+            <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $homePath }}">Быстрый старт</a>
           </li>
           {{- if $pages }}
             <li class="sidebar-group">
@@ -418,7 +418,7 @@
             <a class="{{ if eq $.Page.Type "home" }}is-active{{ end }}" href="{{ $homePath }}">{{ $docsTitle }}</a>
           </li>
           <li class="sidebar-group">
-            <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $.BaseURL }}">Быстрый старт</a>
+            <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $homePath }}">Быстрый старт</a>
           </li>
           {{- if $pages }}
             <li class="sidebar-group">
