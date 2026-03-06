@@ -4,7 +4,7 @@ slug: markdown-tips
 title: "Markdown для Obsidian: базовые приемы"
 description: Практический минимум Markdown, который нужен каждый день в Obsidian.
 hub:
-  - "[[guide]]"
+  - "[[guide-hub]]"
 order: 40
 tags:
   - "obsidian"

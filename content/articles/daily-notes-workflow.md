@@ -4,7 +4,7 @@ slug: daily-notes-workflow
 title: Workflow Daily Notes
 description: Примеры использования Daily Notes workflow в Obsidian.
 hub:
-  - "[[resources]]"
+  - "[[articles-hub]]"
 order: 50
 tags:
   - "obsidian"

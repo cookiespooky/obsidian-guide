@@ -4,7 +4,7 @@ slug: webdav
 title: Синхронизация Obsidian через WebDAV
 description: Пошаговая настройка синхронизации Obsidian через WebDAV.
 hub:
-  - "[[sync]]"
+  - "[[sync-hub]]"
 order: 20
 tags:
   - "obsidian"

@@ -4,7 +4,7 @@ slug: interface
 title: Интерфейс Obsidian
 description: "Разбор основных элементов интерфейса Obsidian: панели, редактор, граф и поиск."
 hub:
-  - "[[guide]]"
+  - "[[guide-hub]]"
 order: 20
 tags:
   - "obsidian"

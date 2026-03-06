@@ -1,7 +1,7 @@
 ---
 type: hub
 slug: guide
-title: Гайд по Obsidian
+title: Быстрый старт в Obsidian
 description: Как установить Obsidian, создать первый vault и начать писать заметки. Самый быстрый способ начать работать с Obsidian без лишних настроек.
 order: 10
 tags:

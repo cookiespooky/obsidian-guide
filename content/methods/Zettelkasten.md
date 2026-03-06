@@ -4,7 +4,7 @@ slug: zettelkasten-method
 title: Zettelkasten в Obsidian
 description: Как использовать принципы Zettelkasten для связных заметок в Obsidian.
 hub:
-  - "[[methods/methods]]"
+  - "[[methods-hub]]"
 order: 20
 tags:
   - "obsidian"

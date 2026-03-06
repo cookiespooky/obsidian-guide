@@ -4,7 +4,7 @@ slug: syncthing
 title: Syncthing
 description: Описание синхронизации Obsidian через Syncthing.
 hub:
-  - "[[sync]]"
+  - "[[sync-hub]]"
 order: 40
 tags:
   - "obsidian"

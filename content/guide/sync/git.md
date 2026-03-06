@@ -4,7 +4,7 @@ slug: git-sync
 title: Синхронизация через Git
 description: Описание подхода к синхронизации Obsidian с использованием Git.
 hub:
-  - "[[sync]]"
+  - "[[sync-hub]]"
 order: 30
 tags:
   - "obsidian"

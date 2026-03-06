@@ -4,7 +4,7 @@ slug: personal-knowledge-system
 title: Personal knowledge system
 description: Как собрать персональную систему знаний в Obsidian.
 hub:
-  - "[[methods/methods]]"
+  - "[[methods-hub]]"
 order: 40
 tags:
   - "obsidian"

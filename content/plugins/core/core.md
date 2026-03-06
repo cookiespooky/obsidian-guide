@@ -1,10 +1,10 @@
 ---
 type: hub
-slug: plugins-core
+slug: plugins-core-hub
 title: Core plugins в Obsidian
 description: Базовые встроенные плагины Obsidian, которые стоит настроить в первую очередь.
 hub:
-  - "[[plugins]]"
+  - "[[plugins-hub]]"
 order: 10
 tags:
   - "obsidian"

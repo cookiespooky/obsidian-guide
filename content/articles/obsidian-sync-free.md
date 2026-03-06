@@ -4,7 +4,7 @@ slug: obsidian-sync-between-devices
 title: Как синхронизировать Obsidian между устройствами
 description: "Как синхронизировать Obsidian между компьютером, телефоном и планшетом. Все основные способы: Obsidian Sync, WebDAV, Git и S3."
 hub:
-  - "[[resources]]"
+  - "[[articles-hub]]"
 order: 30
 tags:
   - "obsidian"

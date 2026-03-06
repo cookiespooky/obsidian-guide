@@ -4,7 +4,7 @@ slug: links
 title: Ссылки между заметками в Obsidian
 description: Как работают внутренние ссылки в Obsidian. Связывание заметок, backlinks и построение сети знаний.
 hub:
-  - "[[guide]]"
+  - "[[guide-hub]]"
 order: 50
 tags:
   - "obsidian"

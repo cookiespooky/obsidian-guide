@@ -1,10 +1,10 @@
 ---
-type: article
+type: hub
 slug: sync
 title: Синхронизация Obsidian между устройствами
 description: "Как синхронизировать Obsidian между компьютером, телефоном и планшетом. Все основные способы: Obsidian Sync, WebDAV, Git и S3."
 hub:
-  - "[[guide]]"
+  - "[[guide-hub]]"
 order: 90
 tags:
   - "obsidian"
@@ -156,7 +156,7 @@ Obsidian хранит заметки как обычные **Markdown-файлы
   
 Следующий шаг — разобраться с **плагинами Obsidian**.  
   
-→ [[plugins|Плагины]]
+→ [[plugins-hub|Плагины]]
   
 ---  
   

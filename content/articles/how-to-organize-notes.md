@@ -4,7 +4,7 @@ slug: how-to-organize-notes
 title: Как организовать заметки в Obsidian
 description: Простая система организации заметок в Obsidian. Папки, ссылки, daily notes и структура vault.
 hub:
-  - "[[resources]]"
+  - "[[articles-hub]]"
 order: 10
 tags:
   - "obsidian"

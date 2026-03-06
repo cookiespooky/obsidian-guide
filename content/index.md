@@ -1,7 +1,7 @@
 ---
 type: home
 slug: home
-title: Полный гайд по Obsidian для начинающих и продолжающих
+title: Гайд по Obsidian
 description: Установка, Markdown, ссылки между заметками, daily notes, структура vault, синхронизация и плагины. Пошаговый старт без хаоса.
 order: 1
 tags:
@@ -79,8 +79,8 @@ noindex: false
 5. [[tags|Теги]]  
 6. [[daily-notes|Daily Notes]]
 7. [[vault-structure|Структура vault]]
-8. [[sync|Синхронизация]]
-9. [[plugins|Плагины]]
+8. [[sync-hub|Синхронизация]]
+9. [[plugins-hub|Плагины]]
   
 Каждая страница объясняет один важный элемент системы.  
   

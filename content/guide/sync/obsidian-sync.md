@@ -4,7 +4,7 @@ slug: obsidian-sync
 title: Obsidian Sync
 description: Описание официального сервиса синхронизации Obsidian Sync.
 hub:
-  - "[[sync]]"
+  - "[[sync-hub]]"
 order: 10
 tags:
   - "obsidian"

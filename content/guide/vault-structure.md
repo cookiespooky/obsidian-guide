@@ -4,7 +4,7 @@ slug: vault-structure
 title: Структура vault в Obsidian — как организовать заметки
 description: Простая структура vault для Obsidian. Минимальная система папок, которая не превращается в хаос.
 hub:
-  - "[[guide]]"
+  - "[[guide-hub]]"
 order: 80
 tags:
   - "obsidian"

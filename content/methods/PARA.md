@@ -4,7 +4,7 @@ slug: para-method
 title: PARA в Obsidian
 description: Метод PARA и как применить его к структуре заметок в Obsidian.
 hub:
-  - "[[methods/methods]]"
+  - "[[methods-hub]]"
 order: 10
 tags:
   - "obsidian"

@@ -4,7 +4,7 @@ slug: publish-obsidian-notes
 title: Публикация Obsidian vault как сайта
 description: Как опубликовать заметки из Obsidian в виде сайта.
 hub:
-  - "[[resources]]"
+  - "[[articles-hub]]"
 order: 40
 tags:
   - "obsidian"

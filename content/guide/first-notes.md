@@ -4,7 +4,7 @@ slug: first-notes
 title: Первые заметки в Obsidian
 description: Как сделать первые заметки, использовать Markdown, списки и изображения.
 hub:
-  - "[[guide]]"
+  - "[[guide-hub]]"
 order: 30
 tags:
   - "obsidian"

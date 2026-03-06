@@ -4,7 +4,7 @@ slug: obsidian-vs-notion
 title: Obsidian vs Notion — какой инструмент заметок выбрать
 description: Сравнение Obsidian и Notion. Чем отличаются эти инструменты для заметок, базы знаний и управления проектами.
 hub:
-  - "[[resources]]"
+  - "[[articles-hub]]"
 order: 20
 tags:
   - "obsidian"

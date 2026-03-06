@@ -4,7 +4,7 @@ slug: tags
 title: Теги в Obsidian
 description: Когда использовать теги, а когда лучше связывать заметки ссылками.
 hub:
-  - "[[guide]]"
+  - "[[guide-hub]]"
 order: 60
 tags:
   - "obsidian"

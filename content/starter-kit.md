@@ -3,8 +3,6 @@ type: article
 slug: starter-kit
 title: Obsidian Starter Kit — готовая система для начала работы
 description: Готовая структура vault и шаблоны для Obsidian. Быстрый старт без долгой настройки системы заметок.
-hub:
-  - "[[resources]]"
 order: 40
 tags:
   - "obsidian"

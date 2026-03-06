@@ -1,6 +1,6 @@
 ---
 type: hub
-slug: resources
+slug: resources-hub
 title: Полезные ресурсы по Obsidian
 description: Подборка полезных ресурсов для Obsidian. Плагины, статьи, инструменты и материалы для работы с системой заметок.
 order: 50
