@@ -4,7 +4,7 @@ slug: remotely-save-plugin
 title: Remotely Save
 description: Плагин Remotely Save
 hub:
-  - "[[community-hub]]"
+  - "[[plugins-community-hub]]"
 order: 10
 tags:
   - "obsidian"
