@@ -92,12 +92,13 @@ a:hover {
 .sidebar-cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   padding: 10px 12px;
   border-radius: 10px;
   background: #111111;
   color: #ffffff;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
 }
@@ -1505,6 +1506,10 @@ body.nav-locked {
   .mobile-docs-nav .sidebar-sublist {
     border-left: 0;
     padding-left: 0;
+  }
+
+  .mobile-docs-nav .sidebar-cta {
+    font-size: 16px;
   }
 }
 
