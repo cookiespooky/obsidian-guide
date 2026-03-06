@@ -66,6 +66,7 @@ a:hover {
   position: sticky;
   top: var(--header-height);
   align-self: start;
+  min-height: 100vh;
   max-height: calc(100dvh - var(--header-height));
   overflow-y: auto;
   overscroll-behavior: contain;
