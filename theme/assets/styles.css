@@ -85,6 +85,29 @@ a:hover {
   display: none;
 }
 
+.sidebar-cta-wrap {
+  margin: 16px 12px 8px;
+}
+
+.sidebar-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #111111;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sidebar-cta:hover {
+  background: #222222;
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .content-area {
   min-width: 0;
   padding: 20px 0;
