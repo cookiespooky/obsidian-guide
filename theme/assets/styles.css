@@ -804,12 +804,13 @@ strong {
   padding: 12px 16px;
   border-left: 3px solid #8a5cf5;
   background: #f2edff;
+  border-radius: 10px;
   color: var(--muted);
 }
 
 body.is-home .content img:first-of-type {
-  width: 200px;
-  max-width: 200px;
+  width: 100px;
+  max-width: 100px;
   display: block;
   margin: 0 0 16px 0;
   border: 0;
