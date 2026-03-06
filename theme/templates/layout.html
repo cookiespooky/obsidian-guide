@@ -40,6 +40,75 @@
     {{- end -}}
   {{- end -}}
 {{- end -}}
+{{- $hubs := .Collections.nav_hubs.Items -}}
+{{- $crumbHub1Slug := "" -}}
+{{- $crumbHub1Title := "" -}}
+{{- $crumbHub1Path := "" -}}
+{{- $crumbHub2Slug := "" -}}
+{{- $crumbHub2Title := "" -}}
+{{- $crumbHub2Path := "" -}}
+{{- $crumbHub3Slug := "" -}}
+{{- $crumbHub3Title := "" -}}
+{{- $crumbHub3Path := "" -}}
+{{- $crumbRaw := "" -}}
+{{- if not $isHome -}}
+  {{- with (index .FM "hub") -}}
+    {{- if gt (len .) 0 -}}
+      {{- $crumbRaw = index . 0 -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if ne $crumbRaw "" -}}
+  {{- range $hubs -}}
+    {{- if or (eq $crumbRaw .Slug) (eq $crumbRaw (printf "[[%s]]" .Slug)) -}}
+      {{- $crumbHub1Slug = .Slug -}}
+      {{- $crumbHub1Title = .Title -}}
+      {{- $crumbHub1Path = .Path -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $crumbParentRaw1 := "" -}}
+{{- if ne $crumbHub1Slug "" -}}
+  {{- range $hubs -}}
+    {{- if eq .Slug $crumbHub1Slug -}}
+      {{- with (index .FM "hub") -}}
+        {{- if gt (len .) 0 -}}
+          {{- $crumbParentRaw1 = index . 0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if ne $crumbParentRaw1 "" -}}
+  {{- range $hubs -}}
+    {{- if or (eq $crumbParentRaw1 .Slug) (eq $crumbParentRaw1 (printf "[[%s]]" .Slug)) -}}
+      {{- $crumbHub2Slug = .Slug -}}
+      {{- $crumbHub2Title = .Title -}}
+      {{- $crumbHub2Path = .Path -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $crumbParentRaw2 := "" -}}
+{{- if ne $crumbHub2Slug "" -}}
+  {{- range $hubs -}}
+    {{- if eq .Slug $crumbHub2Slug -}}
+      {{- with (index .FM "hub") -}}
+        {{- if gt (len .) 0 -}}
+          {{- $crumbParentRaw2 = index . 0 -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if ne $crumbParentRaw2 "" -}}
+  {{- range $hubs -}}
+    {{- if or (eq $crumbParentRaw2 .Slug) (eq $crumbParentRaw2 (printf "[[%s]]" .Slug)) -}}
+      {{- $crumbHub3Slug = .Slug -}}
+      {{- $crumbHub3Title = .Title -}}
+      {{- $crumbHub3Path = .Path -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
 <!doctype html>
 <html lang="en">
@@ -139,13 +208,72 @@
         "position": 1,
         "name": "Home",
         "item": "{{ $homePath }}"
+      }
+      {{- if ne $crumbHub3Slug "" -}},
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ $crumbHub3Title }}",
+        "item": "{{ printf "%s%s" .BaseURL $crumbHub3Path }}"
       },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ $crumbHub2Title }}",
+        "item": "{{ printf "%s%s" .BaseURL $crumbHub2Path }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{{ $crumbHub1Title }}",
+        "item": "{{ printf "%s%s" .BaseURL $crumbHub1Path }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "{{ .Title }}",
+        "item": "{{ $crumbPageURL }}"
+      }
+      {{- else if ne $crumbHub2Slug "" -}},
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ $crumbHub2Title }}",
+        "item": "{{ printf "%s%s" .BaseURL $crumbHub2Path }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ $crumbHub1Title }}",
+        "item": "{{ printf "%s%s" .BaseURL $crumbHub1Path }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "{{ .Title }}",
+        "item": "{{ $crumbPageURL }}"
+      }
+      {{- else if ne $crumbHub1Slug "" -}},
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ $crumbHub1Title }}",
+        "item": "{{ printf "%s%s" .BaseURL $crumbHub1Path }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ .Title }}",
+        "item": "{{ $crumbPageURL }}"
+      }
+      {{- else -}},
       {
         "@type": "ListItem",
         "position": 2,
         "name": "{{ .Title }}",
         "item": "{{ $crumbPageURL }}"
       }
+      {{- end }}
     ]
   }
   </script>
@@ -186,7 +314,6 @@
   </header>
 
   {{- $pages := .Collections.nav_pages.Items }}
-  {{- $hubs := .Collections.nav_hubs.Items }}
   {{- $groups := .Collections.nav_articles_by_hub.Groups }}
 
   <aside class="mobile-nav" data-nav-panel aria-hidden="true">
@@ -365,6 +492,18 @@
         {{- if not $isHome }}
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="{{ $homePath }}">Home</a>
+          {{- if ne $crumbHub3Slug "" }}
+          <span>/</span>
+          <a href="{{ printf "%s%s" $.BaseURL $crumbHub3Path }}">{{ $crumbHub3Title }}</a>
+          {{- end }}
+          {{- if ne $crumbHub2Slug "" }}
+          <span>/</span>
+          <a href="{{ printf "%s%s" $.BaseURL $crumbHub2Path }}">{{ $crumbHub2Title }}</a>
+          {{- end }}
+          {{- if ne $crumbHub1Slug "" }}
+          <span>/</span>
+          <a href="{{ printf "%s%s" $.BaseURL $crumbHub1Path }}">{{ $crumbHub1Title }}</a>
+          {{- end }}
           <span>/</span>
           <span>{{ .Title }}</span>
         </nav>
