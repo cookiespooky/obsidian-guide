@@ -66,6 +66,10 @@ a:hover {
   position: sticky;
   top: var(--header-height);
   align-self: start;
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 12px 0;
   border-right: 1px solid var(--border);
 }
