@@ -122,6 +122,37 @@
 
   normalizeRootLinks();
 
+  function loadFooterFromNote() {
+    var container = document.querySelector('[data-site-footer-content]');
+    if (!container || typeof window.fetch !== 'function') return;
+
+    var footerURL = withBasePath('/footer/');
+    if (!footerURL) return;
+
+    fetch(footerURL, { credentials: 'same-origin' })
+      .then(function (response) {
+        if (!response || !response.ok) return null;
+        return response.text();
+      })
+      .then(function (html) {
+        if (!html) return;
+        var parser = new DOMParser();
+        var doc = parser.parseFromString(html, 'text/html');
+        if (!doc) return;
+
+        var content = doc.querySelector('.content');
+        if (!content) return;
+
+        container.innerHTML = content.innerHTML;
+        normalizeRootLinks();
+      })
+      .catch(function () {
+        // Keep fallback footer text when the footer page is unavailable.
+      });
+  }
+
+  loadFooterFromNote();
+
   function atDocumentTop() {
     return (window.scrollY || window.pageYOffset || 0) <= 0;
   }

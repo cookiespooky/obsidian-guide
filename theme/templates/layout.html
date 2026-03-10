@@ -535,7 +535,9 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span class="footer-built muted">Этот сайт сделан из Obsidian с помощью <a href="{{ printf "%sobsidian-website-hub/" $homePath }}">Notepub</a></span>
+      <div class="footer-built muted" data-site-footer-content>
+        Этот сайт сделан из Obsidian с помощью <a href="{{ printf "%sobsidian-website-hub/" $homePath }}">Notepub</a>
+      </div>
     </div>
   </footer>
   <script src="{{ .AssetsBase }}/main.js"></script>

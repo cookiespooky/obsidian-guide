@@ -13,6 +13,7 @@ tags:
 draft: false
 noindex: false
 ---
+# Markdown синтаксис
  
 Эта заметка показывает базовый Markdown, который понимает Obsidian.  
 
