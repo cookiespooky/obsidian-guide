@@ -1,3 +1,17 @@
+---
+type: article
+slug: why-own-system
+title: Почему большинство пользователей Obsidian в итоге создают свою систему
+description:
+hub:
+  - "[[articles-hub]]"
+order: 20
+tags:
+  - "obsidian"
+  - "article"
+draft: false
+noindex: false
+---
 # Почему большинство пользователей Obsidian в итоге создают свою систему
 
 Когда люди начинают использовать Obsidian, они почти всегда ищут **идеальную систему организации заметок**.
@@ -178,5 +192,7 @@ Archive
 ### Методы организации заметок
 
 [[para|PARA]]  
-[[evergreen-notes|Evergreen Notes]]  
-[[zettelkasten|Zettelkasten]]
+[[zettelkasten|Zettelkasten]]  
+[[pkm|PKM]]
+[[atomic-notes|Atomic Notes]]
+[[self-tracker|Self Tracker]]
