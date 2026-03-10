@@ -330,7 +330,9 @@
             <li class="sidebar-group">
               <ul class="sidebar-sublist sidebar-root">
                 {{- range $pages }}
+                {{- if ne .Slug "footer" }}
                 <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
+                {{- end }}
                 {{- end }}
               </ul>
             </li>
@@ -421,7 +423,9 @@
             <li class="sidebar-group">
               <ul class="sidebar-sublist sidebar-root">
                 {{- range $pages }}
+                {{- if ne .Slug "footer" }}
                 <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
+                {{- end }}
                 {{- end }}
               </ul>
             </li>
