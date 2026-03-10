@@ -314,6 +314,14 @@
   </header>
 
   {{- $pages := .Collections.nav_pages.Items }}
+  {{- $hasSidebarPages := false }}
+  {{- if $pages }}
+    {{- range $pages }}
+      {{- if ne .Slug "footer" }}
+        {{- $hasSidebarPages = true }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
   {{- $groups := .Collections.nav_articles_by_hub.Groups }}
 
   <aside class="mobile-nav" data-nav-panel aria-hidden="true">
@@ -326,7 +334,7 @@
           <li class="sidebar-group">
             <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $homePath }}">Быстрый старт</a>
           </li>
-          {{- if $pages }}
+          {{- if $hasSidebarPages }}
             <li class="sidebar-group">
               <ul class="sidebar-sublist sidebar-root">
                 {{- range $pages }}
@@ -419,7 +427,7 @@
           <li class="sidebar-group">
             <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $homePath }}">Быстрый старт</a>
           </li>
-          {{- if $pages }}
+          {{- if $hasSidebarPages }}
             <li class="sidebar-group">
               <ul class="sidebar-sublist sidebar-root">
                 {{- range $pages }}
