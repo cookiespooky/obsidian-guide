@@ -63,10 +63,10 @@ jobs:
           ref: ${{ steps.source.outputs.content_ref }}
           path: .external-content
 
-      - name: Sync external content into site content/
+      - name: Sync external content into site obsidian-guide/
         if: steps.source.outputs.content_source == 'content_repo'
         run: |
-          find ./content -type f -name '*.md' ! -path './content/search.md' -delete
+          find ./obsidian-guide -type f -name '*.md' ! -path './obsidian-guide/search.md' -delete
 
           rsync -a \
             --exclude '.git/' \
@@ -76,7 +76,7 @@ jobs:
             --exclude 'LICENSE' \
             --exclude '.gitignore' \
             --exclude '.gitattributes' \
-            ./.external-content/ ./content/
+            ./.external-content/ ./obsidian-guide/
 
       - name: Prepare S3 config override
         if: steps.source.outputs.content_source == 's3'
@@ -140,7 +140,7 @@ jobs:
         if: steps.source.outputs.content_source != 's3'
         run: |
           chmod +x ./scripts/normalize-obsidian-embeds.sh
-          ./scripts/normalize-obsidian-embeds.sh ./content
+          ./scripts/normalize-obsidian-embeds.sh ./obsidian-guide
 
       - name: Download notepub binary
         run: |
@@ -179,7 +179,7 @@ jobs:
             --exclude '.github/' \
             --exclude '.obsidian/' \
             --exclude '*.md' \
-            ./content/ ./dist/media/
+            ./obsidian-guide/ ./dist/media/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

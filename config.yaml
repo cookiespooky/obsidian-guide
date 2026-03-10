@@ -7,7 +7,7 @@ site:
   default_og_image: "/assets/notepub.jpg"
 content:
   source: "local"
-  local_dir: "./content"
+  local_dir: "./obsidian-guide"
 paths:
   file_root: ./.notepub
   artifacts_dir: ./.notepub/artifacts

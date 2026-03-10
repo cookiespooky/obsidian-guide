@@ -2,7 +2,7 @@
 set -euo pipefail
 export LC_ALL=C
 
-ROOT_DIR="${1:-./content}"
+ROOT_DIR="${1:-./obsidian-guide}"
 export ROOT_DIR
 
 if [[ ! -d "$ROOT_DIR" ]]; then
@@ -26,7 +26,7 @@ perl -0777 -i - "${files[@]}" <<'PERL'
 use strict;
 use warnings;
 
-my $ROOT_DIR = $ENV{ROOT_DIR} // "./content";
+my $ROOT_DIR = $ENV{ROOT_DIR} // "./obsidian-guide";
 $ROOT_DIR =~ s{\\}{/}g;
 $ROOT_DIR =~ s{/$}{};
 

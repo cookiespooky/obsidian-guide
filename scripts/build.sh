@@ -50,6 +50,6 @@ rsync -a --prune-empty-dirs \
   --exclude '.github/' \
   --exclude '.obsidian/' \
   --exclude '*.md' \
-  ./content/ "$OUT/media/"
+  ./obsidian-guide/ "$OUT/media/"
 
 echo "[5/5] done -> $OUT"

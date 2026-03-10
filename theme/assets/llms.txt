@@ -1,20 +1,21 @@
-Notepub Documentation Template
-URL: https://<username>.github.io/<repo>/
-Description: Template repository for documentation sites powered by Notepub.
-Version: 0.1.1
-Last-Updated: 2026-02-10
+Obsidian Guide
+URL: https://cookiespooky.github.io/obsidian-guide/
+Description: Методичка по Obsidian: быстрый старт, структура vault, связи заметок, daily notes и синхронизация.
+Version: 1.0.0
+Last-Updated: 2026-03-06
 
-Primary language: English
+Primary language: Russian
 
 Start here:
-- Home: https://<username>.github.io/<repo>/
-- Getting Started: https://<username>.github.io/<repo>/getting-started/
-- Configuration: https://<username>.github.io/<repo>/configuration/
-- Build and Deploy: https://<username>.github.io/<repo>/build-and-deploy/
+- Home: https://cookiespooky.github.io/obsidian-guide/
+- Quick Start: https://cookiespooky.github.io/obsidian-guide/quick-start/
+- Methods Hub: https://cookiespooky.github.io/obsidian-guide/methods-hub/
+- Plugins Hub: https://cookiespooky.github.io/obsidian-guide/plugins-hub/
 
 Machine-readable resources:
-- Sitemap: https://<username>.github.io/<repo>/sitemap-index.xml
-- Robots: https://<username>.github.io/<repo>/robots.txt
+- Sitemap: https://cookiespooky.github.io/obsidian-guide/sitemap-index.xml
+- Robots: https://cookiespooky.github.io/obsidian-guide/robots.txt
+- Search index: https://cookiespooky.github.io/obsidian-guide/search.json
 
 For larger context and section map, see:
-- https://<username>.github.io/<repo>/llms-full.txt
+- https://cookiespooky.github.io/obsidian-guide/assets/llms-full.txt

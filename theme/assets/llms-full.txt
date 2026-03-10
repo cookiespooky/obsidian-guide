@@ -1,37 +1,42 @@
-Notepub Documentation Template - LLM Full Context
-Canonical site: https://<username>.github.io/<repo>/
-Version: 0.1.1
-Last-Updated: 2026-02-10
+Obsidian Guide - LLM Full Context
+Canonical site: https://cookiespooky.github.io/obsidian-guide/
+Version: 1.0.0
+Last-Updated: 2026-03-06
 
 Scope
 - This file is a compact navigation and retrieval map for LLM indexing.
-- Replace <username> and <repo> with your repository values after creating from template.
+- Primary language of content: Russian.
 
 Core pages
-- Home: https://<username>.github.io/<repo>/
-- Getting Started: https://<username>.github.io/<repo>/getting-started/
-- Concepts hub: https://<username>.github.io/<repo>/concepts/
-- Authoring hub: https://<username>.github.io/<repo>/authoring/
-- Operations hub: https://<username>.github.io/<repo>/operations/
-- Reference hub: https://<username>.github.io/<repo>/reference/
+- Home: https://cookiespooky.github.io/obsidian-guide/
+- Quick Start: https://cookiespooky.github.io/obsidian-guide/quick-start/
+- Guide Hub: https://cookiespooky.github.io/obsidian-guide/guide/
+- Sync Hub: https://cookiespooky.github.io/obsidian-guide/sync-hub/
+- Methods Hub: https://cookiespooky.github.io/obsidian-guide/methods-hub/
+- Plugins Hub: https://cookiespooky.github.io/obsidian-guide/plugins-hub/
+- Articles Hub: https://cookiespooky.github.io/obsidian-guide/articles-hub/
+- Resources Hub: https://cookiespooky.github.io/obsidian-guide/resources-hub/
+- Obsidian Website Hub: https://cookiespooky.github.io/obsidian-guide/obsidian-website-hub/
 
 Task: Onboarding
-1. https://<username>.github.io/<repo>/getting-started/
-2. https://<username>.github.io/<repo>/configuration/
-3. https://<username>.github.io/<repo>/build-and-deploy/
+1. https://cookiespooky.github.io/obsidian-guide/quick-start/
+2. https://cookiespooky.github.io/obsidian-guide/first-notes/
+3. https://cookiespooky.github.io/obsidian-guide/links/
 
 Task: Authoring and structure
-- https://<username>.github.io/<repo>/content-model/
-- https://<username>.github.io/<repo>/links-and-wikilinks/
+- https://cookiespooky.github.io/obsidian-guide/vault-structure/
+- https://cookiespooky.github.io/obsidian-guide/markdown-tips/
+- https://cookiespooky.github.io/obsidian-guide/tags/
 
 Task: Operations
-- https://<username>.github.io/<repo>/build-and-deploy/
-- https://<username>.github.io/<repo>/troubleshooting/
+- https://cookiespooky.github.io/obsidian-guide/syncthing/
+- https://cookiespooky.github.io/obsidian-guide/webdav/
+- https://cookiespooky.github.io/obsidian-guide/obsidian-sync/
 
 Machine-readable endpoints
-- Sitemap index: https://<username>.github.io/<repo>/sitemap-index.xml
-- Robots: https://<username>.github.io/<repo>/robots.txt
-- Search index: https://<username>.github.io/<repo>/search.json
+- Sitemap index: https://cookiespooky.github.io/obsidian-guide/sitemap-index.xml
+- Robots: https://cookiespooky.github.io/obsidian-guide/robots.txt
+- Search index: https://cookiespooky.github.io/obsidian-guide/search.json
 
 Notes for indexing
 - Keep slugs stable.
