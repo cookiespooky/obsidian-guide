@@ -1,15 +1,15 @@
 ---
 type: article
-slug: atomic-notes-method
+slug: evergreen-notes-method
 title: Evergreen Notes
 description: Evergreen Notes в Obsidian.
 hub:
   - "[[methods-hub]]"
 order: 30
 tags:
-  - "obsidian"
-  - "methods"
-  - "evergreen-notes"
+  - obsidian
+  - methods
+  - evergreen-notes
 draft: false
 noindex: false
 ---

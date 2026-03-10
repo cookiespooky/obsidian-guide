@@ -1,6 +1,6 @@
 ---
 type: home
-slug: home
+slug: index1
 title: Гайд по Obsidian
 description: Установка, Markdown, ссылки между заметками, daily notes, структура vault, синхронизация и плагины. Пошаговый старт без хаоса.
 order: 1
@@ -8,7 +8,7 @@ tags:
   - obsidian
   - guide
 draft: true
-noindex: false
+noindex: true
 ---
 ![[obsidian.svg]]
 # Полный гайд по Obsidian
