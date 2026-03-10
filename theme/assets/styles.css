@@ -816,6 +816,20 @@ strong {
   color: var(--muted);
 }
 
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.content th,
+.content td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
 body.is-home .content img:first-of-type {
   width: 100px;
   max-width: 100px;
