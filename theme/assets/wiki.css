@@ -39,9 +39,9 @@ h1, h2, h3, p, ul, ol { margin: 0; }
 .side__nav details > ul { overflow: hidden; }
 .side__nav ul { list-style: none; margin: 8px 0 0; padding: 0 0 0 26px; }
 .side__nav li + li { margin-top: 2px; }
-.side__nav a { display: block; padding: 5px 10px; margin-left: -10px; border-radius: 6px; font-size: 14px; line-height: 1.4; color: var(--link); text-decoration: none; transition: background 0.15s var(--ease), color 0.15s var(--ease); }
-.side__nav a:hover { background: var(--paper-2); color: var(--link); }
-.side__nav a[aria-current="page"] { background: var(--paper-2); color: var(--link); font-weight: 500; }
+.side__nav a { display: block; padding: 5px 10px; margin-left: -10px; border-radius: 6px; font-size: 14px; line-height: 1.4; color: var(--ink-2); text-decoration: none; transition: background 0.15s var(--ease), color 0.15s var(--ease); }
+.side__nav a:hover { background: var(--paper-2); color: var(--ink); }
+.side__nav a[aria-current="page"] { background: var(--paper-2); color: var(--ink); font-weight: 500; }
 
 /* ---------- страница и текст ---------- */
 .main { min-width: 0; padding: 56px 40px 96px 64px; }
@@ -148,11 +148,11 @@ h1, h2, h3, p, ul, ol { margin: 0; }
 
 /* «После курса» последним пунктом бокового меню */
 .side__after { margin-top: 26px !important; padding-top: 18px; border-top: 1px solid var(--line); }
-.side__after a { display: inline; padding: 0; margin: 0; font-size: 14px; font-weight: 600; color: var(--link); background: none !important; }
-.side__after a:hover, .side__after a[aria-current="page"] { color: var(--ink); }
+.side__after a { display: inline; padding: 0; margin: 0; font-size: 14px; font-weight: 600; color: var(--ink); background: none !important; }
+.side__after a:hover, .side__after a[aria-current="page"] { color: var(--accent); }
 .side__about { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
-.side__nav .side__about a { display: inline; padding: 0; margin: 0; font-size: 14px; font-weight: 600; color: var(--link); background: none !important; }
-.side__nav .side__about a:hover, .side__nav .side__about a[aria-current="page"] { color: var(--ink); background: none; }
+.side__nav .side__about a { display: inline; padding: 0; margin: 0; font-size: 14px; font-weight: 600; color: var(--ink); background: none !important; }
+.side__nav .side__about a:hover, .side__nav .side__about a[aria-current="page"] { color: var(--accent); background: none; }
 
 /* ---------- подпись автора ---------- */
 .byline { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
