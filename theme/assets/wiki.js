@@ -86,3 +86,30 @@
     if (!/\bnoopener\b/.test(a.rel)) a.rel = (a.rel ? a.rel + ' ' : '') + 'noopener';
   }, true);
 })();
+
+/* Разделы меню открываются и закрываются плавно: высота списка анимируется, <details> меняет состояние в начале
+   открытия и в конце закрытия. Без скрипта или при «уменьшить движение» — обычное переключение без анимации. */
+(function () {
+  if (!Element.prototype.animate || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  Array.prototype.forEach.call(document.querySelectorAll('.side__nav details.side__step'), function (d) {
+    var sum = d.querySelector('summary'), list = d.querySelector('ul'), anim = null;
+    if (!sum || !list) return;
+    sum.addEventListener('click', function (e) {
+      e.preventDefault();
+      var closing = d.open && !d.classList.contains('is-closing');
+      var from = list.getBoundingClientRect().height;
+      if (anim) anim.cancel();
+      if (closing) {
+        d.classList.add('is-closing');
+        anim = list.animate([{ height: from + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 220, easing: 'ease' });
+        anim.onfinish = function () { d.open = false; d.classList.remove('is-closing'); anim = null; };
+      } else {
+        d.classList.remove('is-closing');
+        d.open = true;
+        var to = list.scrollHeight;
+        anim = list.animate([{ height: (from || 0) + 'px', opacity: 0 }, { height: to + 'px', opacity: 1 }], { duration: 240, easing: 'ease' });
+        anim.onfinish = function () { anim = null; };
+      }
+    });
+  });
+})();

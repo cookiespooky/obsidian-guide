@@ -1,77 +1,79 @@
 {{- /* Боковое меню: разделы гайда и статьи каждого. Печатается дважды — слева на широком экране и в выдвижном
        ящике справа на узком. Раздел — страница-хаб, статьи — те, у кого в шапке hub указан этот хаб
-       (коллекции sec_* в rules.yaml). Названия разделов вписаны сюда. Оформление — как у курса «Вайбкодинг с нуля». */ -}}
+       (коллекции sec_* в rules.yaml). Названия разделов вписаны сюда. Оформление — как у гайда «Вайбкодинг с нуля».
+       Раздел — <details>: открыт только тот, где лежит открытая страница; клик по названию сворачивает и разворачивает
+       его без перехода, страница-хаб раздела — первым пунктом «Обзор раздела». */ -}}
 <nav class="side__nav" aria-label="Содержание гайда">
   <div class="side__step side__about">
     <p class="side__title"><span class="side__num">·</span><a href="{{ $.BaseURL }}/"{{ if $.IsHome }} aria-current="page"{{ end }}>О гайде</a></p>
   </div>
-  <div class="side__step">
-    <p class="side__title"><span class="side__num">1</span>Быстрый старт</p>
+  <details class="side__step"{{ if or (eq "quick-start" $.Page.Slug) (eq "obsidian-ai-agent" $.Page.Slug) }} open{{ end }}>
+    <summary class="side__title"><span class="side__num">1</span>Быстрый старт</summary>
     <ul>
       <li><a href="{{ $.BaseURL }}/quick-start/"{{ if eq "quick-start" $.Page.Slug }} aria-current="page"{{ end }}>Быстрый старт за 10 минут</a></li>
       <li><a href="{{ $.BaseURL }}/obsidian-ai-agent/"{{ if eq "obsidian-ai-agent" $.Page.Slug }} aria-current="page"{{ end }}>Obsidian и ИИ-агент</a></li>
     </ul>
-  </div>
-  <div class="side__step">
-    <p class="side__title"><span class="side__num">2</span><a class="side__hub" href="{{ $.BaseURL }}/guide/"{{ if eq "guide" $.Page.Slug }} aria-current="page"{{ end }}>Основы</a></p>
-    {{- if .Collections.sec_guide.Items }}
+  </details>
+  {{- $open_2 := eq "guide" $.Page.Slug }}{{ range .Collections.sec_guide.Items }}{{ if eq .Slug $.Page.Slug }}{{ $open_2 = true }}{{ end }}{{ end }}
+  <details class="side__step"{{ if $open_2 }} open{{ end }}>
+    <summary class="side__title"><span class="side__num">2</span>Основы</summary>
     <ul>
+      <li><a href="{{ $.BaseURL }}/guide/"{{ if eq "guide" $.Page.Slug }} aria-current="page"{{ end }}>Обзор раздела</a></li>
       {{- range .Collections.sec_guide.Items }}
       <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
       {{- end }}
     </ul>
-    {{- end }}
-  </div>
-  <div class="side__step">
-    <p class="side__title"><span class="side__num">3</span><a class="side__hub" href="{{ $.BaseURL }}/plugins-hub/"{{ if eq "plugins-hub" $.Page.Slug }} aria-current="page"{{ end }}>Плагины</a></p>
-    {{- if .Collections.sec_plugins.Items }}
+  </details>
+  {{- $open_3 := eq "plugins-hub" $.Page.Slug }}{{ range .Collections.sec_plugins.Items }}{{ if eq .Slug $.Page.Slug }}{{ $open_3 = true }}{{ end }}{{ end }}
+  <details class="side__step"{{ if $open_3 }} open{{ end }}>
+    <summary class="side__title"><span class="side__num">3</span>Плагины</summary>
     <ul>
+      <li><a href="{{ $.BaseURL }}/plugins-hub/"{{ if eq "plugins-hub" $.Page.Slug }} aria-current="page"{{ end }}>Обзор раздела</a></li>
       {{- range .Collections.sec_plugins.Items }}
       <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
       {{- end }}
     </ul>
-    {{- end }}
-  </div>
-  <div class="side__step">
-    <p class="side__title"><span class="side__num">4</span><a class="side__hub" href="{{ $.BaseURL }}/sync-hub/"{{ if eq "sync-hub" $.Page.Slug }} aria-current="page"{{ end }}>Синхронизация</a></p>
-    {{- if .Collections.sec_sync.Items }}
+  </details>
+  {{- $open_4 := eq "sync-hub" $.Page.Slug }}{{ range .Collections.sec_sync.Items }}{{ if eq .Slug $.Page.Slug }}{{ $open_4 = true }}{{ end }}{{ end }}
+  <details class="side__step"{{ if $open_4 }} open{{ end }}>
+    <summary class="side__title"><span class="side__num">4</span>Синхронизация</summary>
     <ul>
+      <li><a href="{{ $.BaseURL }}/sync-hub/"{{ if eq "sync-hub" $.Page.Slug }} aria-current="page"{{ end }}>Обзор раздела</a></li>
       {{- range .Collections.sec_sync.Items }}
       <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
       {{- end }}
     </ul>
-    {{- end }}
-  </div>
-  <div class="side__step">
-    <p class="side__title"><span class="side__num">5</span><a class="side__hub" href="{{ $.BaseURL }}/methods-hub/"{{ if eq "methods-hub" $.Page.Slug }} aria-current="page"{{ end }}>Методы</a></p>
-    {{- if .Collections.sec_methods.Items }}
+  </details>
+  {{- $open_5 := eq "methods-hub" $.Page.Slug }}{{ range .Collections.sec_methods.Items }}{{ if eq .Slug $.Page.Slug }}{{ $open_5 = true }}{{ end }}{{ end }}
+  <details class="side__step"{{ if $open_5 }} open{{ end }}>
+    <summary class="side__title"><span class="side__num">5</span>Методы</summary>
     <ul>
+      <li><a href="{{ $.BaseURL }}/methods-hub/"{{ if eq "methods-hub" $.Page.Slug }} aria-current="page"{{ end }}>Обзор раздела</a></li>
       {{- range .Collections.sec_methods.Items }}
       <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
       {{- end }}
     </ul>
-    {{- end }}
-  </div>
-  <div class="side__step">
-    <p class="side__title"><span class="side__num">6</span><a class="side__hub" href="{{ $.BaseURL }}/articles-hub/"{{ if eq "articles-hub" $.Page.Slug }} aria-current="page"{{ end }}>Статьи</a></p>
-    {{- if .Collections.sec_articles.Items }}
+  </details>
+  {{- $open_6 := eq "articles-hub" $.Page.Slug }}{{ range .Collections.sec_articles.Items }}{{ if eq .Slug $.Page.Slug }}{{ $open_6 = true }}{{ end }}{{ end }}
+  <details class="side__step"{{ if $open_6 }} open{{ end }}>
+    <summary class="side__title"><span class="side__num">6</span>Статьи</summary>
     <ul>
+      <li><a href="{{ $.BaseURL }}/articles-hub/"{{ if eq "articles-hub" $.Page.Slug }} aria-current="page"{{ end }}>Обзор раздела</a></li>
       {{- range .Collections.sec_articles.Items }}
       <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
       {{- end }}
     </ul>
-    {{- end }}
-  </div>
-  <div class="side__step">
-    <p class="side__title"><span class="side__num">7</span><a class="side__hub" href="{{ $.BaseURL }}/resources-hub/"{{ if eq "resources-hub" $.Page.Slug }} aria-current="page"{{ end }}>Ресурсы</a></p>
-    {{- if .Collections.sec_resources.Items }}
+  </details>
+  {{- $open_7 := eq "resources-hub" $.Page.Slug }}{{ range .Collections.sec_resources.Items }}{{ if eq .Slug $.Page.Slug }}{{ $open_7 = true }}{{ end }}{{ end }}
+  <details class="side__step"{{ if $open_7 }} open{{ end }}>
+    <summary class="side__title"><span class="side__num">7</span>Ресурсы</summary>
     <ul>
+      <li><a href="{{ $.BaseURL }}/resources-hub/"{{ if eq "resources-hub" $.Page.Slug }} aria-current="page"{{ end }}>Обзор раздела</a></li>
       {{- range .Collections.sec_resources.Items }}
       <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
       {{- end }}
     </ul>
-    {{- end }}
-  </div>
+  </details>
   <div class="side__step side__after">
     <p class="side__title"><span class="side__num">→</span><a href="{{ $.BaseURL }}/{{ $.Settings.templates_slug }}/"{{ if eq $.Page.Slug $.Settings.templates_slug }} aria-current="page"{{ end }}>Шаблоны Life OS</a></p>
   </div>
