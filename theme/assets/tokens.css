@@ -13,6 +13,7 @@
   --muted-3: #999ea4;
   --accent: #3e5368;
   --accent-ink: #ffffff;
+  --link: #1f5fbf;      /* ссылки в тексте: --accent рядом с --ink от текста не отличить */
   --panel: #1b2128;
   --panel-ink: #f5f6f7;
   --panel-muted: #b3b8be;

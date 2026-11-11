@@ -48,8 +48,8 @@ h1, h2, h3, p, ul, ol { margin: 0; }
 .prose h2 { margin-top: 44px; font-size: 24px; line-height: 1.25; letter-spacing: -0.02em; font-weight: 600; }
 .prose h3 { margin-top: 30px; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
 .prose p, .prose li { color: var(--ink-1); text-wrap: pretty; }
-.prose a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
-.prose a:hover { text-decoration-color: var(--accent); }
+.prose a { color: var(--link); text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.prose a:hover { text-decoration-color: var(--link); }
 .prose ul, .prose ol { padding-left: 1.2em; }
 .prose li + li { margin-top: 6px; }
 .prose strong { color: var(--ink); font-weight: 600; }
