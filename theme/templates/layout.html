@@ -1,129 +1,16 @@
-{{- $isHome := eq .Page.Type "home" -}}
-{{- $homePath := printf "%s/" .BaseURL -}}
-{{- $docsTitle := "Главная" -}}
-{{- $searchLabel := "Поиск" -}}
-{{- $brandName := "Notepub" -}}
-{{- $brandLogo := printf "%s/notepub.svg" .AssetsBase -}}
-{{- $defaultOGImage := printf "%s/notepub.jpg" .AssetsBase -}}
-{{- $metaOGImage := "" -}}
-{{- $metaOGImageAlt := "" -}}
-{{- $fmOverridesOGImage := false -}}
-{{- with .Collections.home_page.Items -}}
-  {{- if gt (len .) 0 -}}
-    {{- $brandName = (index . 0).Title -}}
-  {{- end -}}
-{{- end -}}
-{{- range .Meta.OpenGraph -}}
-  {{- if eq .Key "og:image" -}}
-    {{- $metaOGImage = .Value -}}
-  {{- end -}}
-  {{- if eq .Key "og:image:alt" -}}
-    {{- $metaOGImageAlt = .Value -}}
-  {{- end -}}
-{{- end -}}
-{{- with (index .FM "og_image") -}}
-  {{- if ne (printf "%v" .) "" -}}
-    {{- $fmOverridesOGImage = true -}}
-  {{- end -}}
-{{- end -}}
-{{- with (index .FM "opengraph") -}}
-  {{- with (index . "image") -}}
-    {{- if ne (printf "%v" .) "" -}}
-      {{- $fmOverridesOGImage = true -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- with (index .FM "og") -}}
-  {{- with (index . "image") -}}
-    {{- if ne (printf "%v" .) "" -}}
-      {{- $fmOverridesOGImage = true -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- $hubs := .Collections.nav_hubs.Items -}}
-{{- $crumbHub1Slug := "" -}}
-{{- $crumbHub1Title := "" -}}
-{{- $crumbHub1Path := "" -}}
-{{- $crumbHub2Slug := "" -}}
-{{- $crumbHub2Title := "" -}}
-{{- $crumbHub2Path := "" -}}
-{{- $crumbHub3Slug := "" -}}
-{{- $crumbHub3Title := "" -}}
-{{- $crumbHub3Path := "" -}}
-{{- $crumbRaw := "" -}}
-{{- if not $isHome -}}
-  {{- with (index .FM "hub") -}}
-    {{- if gt (len .) 0 -}}
-      {{- $crumbRaw = index . 0 -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- if ne $crumbRaw "" -}}
-  {{- range $hubs -}}
-    {{- if or (eq $crumbRaw .Slug) (eq $crumbRaw (printf "[[%s]]" .Slug)) -}}
-      {{- $crumbHub1Slug = .Slug -}}
-      {{- $crumbHub1Title = .Title -}}
-      {{- $crumbHub1Path = .Path -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- $crumbParentRaw1 := "" -}}
-{{- if ne $crumbHub1Slug "" -}}
-  {{- range $hubs -}}
-    {{- if eq .Slug $crumbHub1Slug -}}
-      {{- with (index .FM "hub") -}}
-        {{- if gt (len .) 0 -}}
-          {{- $crumbParentRaw1 = index . 0 -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- if ne $crumbParentRaw1 "" -}}
-  {{- range $hubs -}}
-    {{- if or (eq $crumbParentRaw1 .Slug) (eq $crumbParentRaw1 (printf "[[%s]]" .Slug)) -}}
-      {{- $crumbHub2Slug = .Slug -}}
-      {{- $crumbHub2Title = .Title -}}
-      {{- $crumbHub2Path = .Path -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- $crumbParentRaw2 := "" -}}
-{{- if ne $crumbHub2Slug "" -}}
-  {{- range $hubs -}}
-    {{- if eq .Slug $crumbHub2Slug -}}
-      {{- with (index .FM "hub") -}}
-        {{- if gt (len .) 0 -}}
-          {{- $crumbParentRaw2 = index . 0 -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-{{- if ne $crumbParentRaw2 "" -}}
-  {{- range $hubs -}}
-    {{- if or (eq $crumbParentRaw2 .Slug) (eq $crumbParentRaw2 (printf "[[%s]]" .Slug)) -}}
-      {{- $crumbHub3Slug = .Slug -}}
-      {{- $crumbHub3Title = .Title -}}
-      {{- $crumbHub3Path = .Path -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ .AssetsBase }}/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ .AssetsBase }}/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ .AssetsBase }}/favicon-16x16.png" />
-  <link rel="icon" href="{{ .AssetsBase }}/favicon.ico" />
-  <link rel="mask-icon" href="{{ .AssetsBase }}/notepub.svg" color="#0a0a0a" />
-  <link rel="manifest" href="{{ .AssetsBase }}/site.webmanifest" />
-  <link rel="stylesheet" href="{{ .AssetsBase }}/styles.css" />
+  <meta name="theme-color" content="#f5f6f7" />
+  <link rel="preload" as="font" type="font/woff2" href="{{ .AssetsBase }}/fonts/golos-text-cyrillic.woff2" crossorigin />
+  <link rel="stylesheet" href="{{ .AssetsBase }}/fonts.css" />
+  <link rel="stylesheet" href="{{ .AssetsBase }}/tokens.css" />
+  <link rel="stylesheet" href="{{ .AssetsBase }}/wiki.css" />
+  <link rel="icon" href="{{ .AssetsBase }}/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="{{ .AssetsBase }}/apple-touch-icon.png" />
   {{- if .Page.Description }}
   <meta name="description" content="{{ .Page.Description }}" />
   {{- end }}
@@ -133,413 +20,104 @@
   {{- if .Canonical }}
   <link rel="canonical" href="{{ .Canonical }}" />
   {{- end }}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ .Title }}" />
-  {{- if .Page.Description }}
-  <meta name="twitter:description" content="{{ .Page.Description }}" />
-  {{- end }}
   {{- range .Meta.OpenGraph }}
-  {{- if and (ne .Key "og:image") (ne .Key "og:image:alt") }}
   <meta property="{{ .Key }}" content="{{ .Value }}" />
   {{- end }}
-  {{- end }}
-  {{- $resolvedOGImage := $defaultOGImage -}}
-  {{- if and (eq .Page.Type "article") (ne $metaOGImage "") -}}
-    {{- $resolvedOGImage = $metaOGImage -}}
-  {{- end -}}
-  {{- if and (ne .Page.Type "article") $fmOverridesOGImage (ne $metaOGImage "") -}}
-    {{- $resolvedOGImage = $metaOGImage -}}
-  {{- end -}}
-  <meta property="og:image" content="{{ $resolvedOGImage }}" />
-  {{- if and (eq $resolvedOGImage $metaOGImage) (ne $metaOGImageAlt "") }}
-  <meta property="og:image:alt" content="{{ $metaOGImageAlt }}" />
-  {{- end }}
-
-  {{- if .Meta.JSONLD }}
-  <script type="application/ld+json">{{ .Meta.JSONLD }}</script>
-  {{- else }}
-  {{- $pageURL := .Canonical -}}
-  {{- if not $pageURL }}{{- $pageURL = printf "%s/" .BaseURL -}}{{- end -}}
-  {{- $isArticle := eq .Page.Type "article" -}}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "{{ .BaseURL }}/#website",
-        "url": "{{ .BaseURL }}/",
-        "name": "Notepub Docs Template",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "WebPage",
-        "@id": "{{ $pageURL }}#webpage",
-        "url": "{{ $pageURL }}",
-        "name": "{{ .Title }}",
-        "description": "{{ .Page.Description }}",
-        "isPartOf": { "@id": "{{ .BaseURL }}/#website" },
-        "inLanguage": "en"
-      }
-      {{- if $isArticle -}},
-      {
-        "@type": "TechArticle",
-        "headline": "{{ .Title }}",
-        "description": "{{ .Page.Description }}",
-        "mainEntityOfPage": { "@id": "{{ $pageURL }}#webpage" },
-        "inLanguage": "en"
-      }
-      {{- end -}}
-    ]
-  }
-  </script>
-  {{- end }}
-
-  {{- if not $isHome }}
-  {{- $crumbPageURL := .Canonical -}}
-  {{- if not $crumbPageURL }}{{- $crumbPageURL = printf "%s/" .BaseURL -}}{{- end -}}
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "{{ $homePath }}"
-      }
-      {{- if ne $crumbHub3Slug "" -}},
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ $crumbHub3Title }}",
-        "item": "{{ printf "%s%s" .BaseURL $crumbHub3Path }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{ $crumbHub2Title }}",
-        "item": "{{ printf "%s%s" .BaseURL $crumbHub2Path }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "{{ $crumbHub1Title }}",
-        "item": "{{ printf "%s%s" .BaseURL $crumbHub1Path }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "name": "{{ .Title }}",
-        "item": "{{ $crumbPageURL }}"
-      }
-      {{- else if ne $crumbHub2Slug "" -}},
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ $crumbHub2Title }}",
-        "item": "{{ printf "%s%s" .BaseURL $crumbHub2Path }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{ $crumbHub1Title }}",
-        "item": "{{ printf "%s%s" .BaseURL $crumbHub1Path }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "{{ .Title }}",
-        "item": "{{ $crumbPageURL }}"
-      }
-      {{- else if ne $crumbHub1Slug "" -}},
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ $crumbHub1Title }}",
-        "item": "{{ printf "%s%s" .BaseURL $crumbHub1Path }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "{{ .Title }}",
-        "item": "{{ $crumbPageURL }}"
-      }
-      {{- else -}},
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "{{ .Title }}",
-        "item": "{{ $crumbPageURL }}"
-      }
-      {{- end }}
-    ]
-  }
-  </script>
-  {{- end }}
-
-  <script>
-    window.__notepubSearchMode = "{{ .SearchMode }}";
-    window.__notepubBaseURL = "{{ .BaseURL }}";
-  </script>
   <title>{{ .Title }}</title>
+  {{- if .Settings.yandex_verification }}
+  <meta name="yandex-verification" content="{{ .Settings.yandex_verification }}" />
+  {{- end }}
+  {{- if .Settings.google_verification }}
+  <meta name="google-site-verification" content="{{ .Settings.google_verification }}" />
+  {{- end }}
+  {{- /* Разметка schema.org: главная — сайт, остальное — статья с автором. Значения шаблон сам кодирует в JSON. */}}
+  {{- if .IsHome }}
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": {{ .Settings.site_name }}, "description": {{ .Page.Description }}, "url": {{ .Canonical }}, "inLanguage": "ru", "author": {"@type": "Person", "name": {{ .Settings.author_name }}, "url": {{ .Settings.author_url }}}}</script>
+  {{- else }}
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": {{ .Page.Title }}, "description": {{ .Page.Description }}, "url": {{ .Canonical }}, "inLanguage": "ru", "author": {"@type": "Person", "name": {{ .Settings.author_name }}, "url": {{ .Settings.author_url }}}, "isPartOf": {"@type": "WebSite", "name": {{ .Settings.site_name }}, "url": {{ printf "%s/" .BaseURL }}}}</script>
+  {{- end }}
 </head>
-
-<body class="{{ if $isHome }}is-home{{ else }}is-page{{ end }}">
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="{{ $homePath }}" aria-label="{{ $brandName }}">
-        <span class="logo" aria-hidden="true">
-          <img src="{{ $brandLogo }}" alt="" />
-        </span>
-        <span>{{ $brandName }}</span>
+<body>
+  {{- /* Шапка на всех экранах: название гайда и строка о нём, справа — шаблоны Life OS, курс по вайбкодингу, автор.
+         На узком экране ссылки уходят в ящик, на их месте кнопка содержания; меню выезжает справа. */}}
+  <header class="top">
+    <div class="top__inner">
+      <a class="top__brand" href="{{ .BaseURL }}/">
+        <span class="top__name">{{ .Settings.site_name }}</span>
+        <span class="top__note">{{ .Settings.site_note }}</span>
       </a>
-      <div class="header-actions">
-        <a id="np-search-trigger" class="icon-button" href="{{ printf "%ssearch/" $homePath }}" aria-label="{{ $searchLabel }}">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-          </svg>
-        </a>
-        <button class="icon-button nav-toggle" type="button" data-nav-open aria-label="Open navigation">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon icon-open" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon icon-close" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-            <path d="M2.146 2.146a.5.5 0 0 1 .708 0L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854a.5.5 0 0 1 0-.708"/>
-          </svg>
-        </button>
-      </div>
+      <nav class="top__links" aria-label="О гайде">
+        <a href="{{ .BaseURL }}/{{ .Settings.templates_slug }}/"{{ if eq .Page.Slug .Settings.templates_slug }} aria-current="page"{{ end }}>Шаблоны Life OS</a>
+        <a href="{{ .Settings.vibewiki_url }}" target="_blank" rel="noopener">Вайбкодинг с нуля</a>
+        <a href="{{ .Settings.author_url }}" target="_blank" rel="author noopener">{{ .Settings.author_label }}</a>
+      </nav>
+      <button class="top__burger" type="button" data-drawer-open aria-controls="drawer" aria-expanded="false" aria-label="Открыть содержание"><span aria-hidden="true"></span></button>
     </div>
   </header>
 
-  {{- $pages := .Collections.nav_pages.Items }}
-  {{- $hasSidebarPages := false }}
-  {{- if $pages }}
-    {{- range $pages }}
-      {{- if ne .Slug "footer" }}
-        {{- $hasSidebarPages = true }}
-      {{- end }}
-    {{- end }}
-  {{- end }}
-  {{- $groups := .Collections.nav_articles_by_hub.Groups }}
+  <div class="wrap">
+    <aside class="side">
+      {{ template "sidebar.html" . }}
+    </aside>
+    {{- /* Место прокрутки меню ставится сразу, до первой отрисовки: иначе меню мелькает с начала и прыгает.
+           Запоминает его wiki.js (тот же ключ). */}}
+    <script>try{var s=JSON.parse(sessionStorage.getItem('wiki-menu-scroll')||'{}');if(s[0])document.currentScript.previousElementSibling.scrollTop=s[0]}catch(e){}</script>
+    <main class="main">
+      {{ .Body }}
+    </main>
+  </div>
 
-  <aside class="mobile-nav" data-nav-panel aria-hidden="true">
-    <div class="mobile-nav-inner">
-      <nav class="mobile-nav-links mobile-docs-nav" aria-label="Documentation navigation">
-        <ul class="sidebar-list">
-          <li class="sidebar-group">
-            <a class="{{ if eq $.Page.Type "home" }}is-active{{ end }}" href="{{ $homePath }}">{{ $docsTitle }}</a>
-          </li>
-          <li class="sidebar-group">
-            <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $homePath }}">Быстрый старт</a>
-          </li>
-          {{- if $hasSidebarPages }}
-            <li class="sidebar-group">
-              <ul class="sidebar-sublist sidebar-root">
-                {{- range $pages }}
-                {{- if ne .Slug "footer" }}
-                <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
-                {{- end }}
-                {{- end }}
-              </ul>
-            </li>
-          {{- end }}
-          {{- if $hubs }}
-            {{- range $hubs }}
-            {{- $hub := . }}
-            {{- $hubParents := (index $hub.FM "hub") }}
-            {{- if not $hubParents }}
-            {{- $hubIsActive := eq $hub.Slug $.Page.Slug }}
-            {{- if $groups }}
-              {{- range $groups }}
-                {{- if eq .Key $hub.Slug }}
-                  {{- range .Items }}
-                    {{- if eq .Slug $.Page.Slug }}{{- $hubIsActive = true }}{{- end }}
-                  {{- end }}
-                {{- end }}
-              {{- end }}
-            {{- end }}
-            <li class="sidebar-group hub-group {{ if $hubIsActive }}hub-open{{ end }}">
-              <a class="hub-link {{ if $hubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $hub.Path }}">{{ $hub.Title }}</a>
-              <ul class="sidebar-sublist">
-                {{- if $groups }}
-                  {{- range $groups }}
-                    {{- if eq .Key $hub.Slug }}
-                      {{- range .Items }}
-                      <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
-                      {{- end }}
-                    {{- end }}
-                  {{- end }}
-                {{- end }}
-                {{- range $hubs }}
-                  {{- $childHub := . }}
-                  {{- $childParents := (index $childHub.FM "hub") }}
-                  {{- if $childParents }}
-                    {{- range $childParents }}
-                      {{- if eq . $hub.Slug }}
-                        {{- $childHubIsActive := eq $childHub.Slug $.Page.Slug }}
-                        {{- if $groups }}
-                          {{- range $groups }}
-                            {{- if eq .Key $childHub.Slug }}
-                              {{- range .Items }}
-                                {{- if eq .Slug $.Page.Slug }}{{- $childHubIsActive = true }}{{- end }}
-                              {{- end }}
-                            {{- end }}
-                          {{- end }}
-                        {{- end }}
-                      <li class="sidebar-group hub-group {{ if $childHubIsActive }}hub-open{{ end }}">
-                        <a class="hub-link {{ if $childHubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $childHub.Path }}">{{ $childHub.Title }}</a>
-                        {{- if $groups }}
-                        <ul class="sidebar-sublist">
-                          {{- range $groups }}
-                            {{- if eq .Key $childHub.Slug }}
-                              {{- range .Items }}
-                              <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
-                              {{- end }}
-                            {{- end }}
-                          {{- end }}
-                        </ul>
-                        {{- end }}
-                      </li>
-                      {{- end }}
-                    {{- end }}
-                  {{- end }}
-                {{- end }}
-              </ul>
-            </li>
-            {{- end }}
-            {{- end }}
-          {{- end }}
-        </ul>
-      </nav>
+  <div class="overlay" data-drawer-overlay hidden></div>
+  <aside class="drawer" id="drawer" data-drawer aria-label="Содержание" aria-hidden="true" hidden>
+    <div class="drawer__head">
+      <span>Содержание</span>
+      <button class="drawer__close" type="button" data-drawer-close aria-label="Закрыть">✕</button>
     </div>
-    <div class="mobile-nav-backdrop" data-nav-close></div>
+    {{ template "sidebar.html" . }}
+    <p class="drawer__links">
+      <a href="{{ .BaseURL }}/{{ .Settings.templates_slug }}/">Шаблоны Life OS</a>
+      <a href="{{ .Settings.vibewiki_url }}" target="_blank" rel="noopener">Вайбкодинг с нуля</a>
+      <a href="{{ .Settings.author_url }}" target="_blank" rel="author noopener">{{ .Settings.author_label }}</a>
+    </p>
   </aside>
-
-  <main class="wrap">
-    <div class="layout">
-      <aside class="sidebar" aria-label="Documentation navigation">
-        <ul class="sidebar-list">
-          <li class="sidebar-group">
-            <a class="{{ if eq $.Page.Type "home" }}is-active{{ end }}" href="{{ $homePath }}">{{ $docsTitle }}</a>
-          </li>
-          <li class="sidebar-group">
-            <a class="{{ if eq $.Page.Slug "quick-start" }}is-active{{ end }}" href="{{ printf "%squick-start/" $homePath }}">Быстрый старт</a>
-          </li>
-          {{- if $hasSidebarPages }}
-            <li class="sidebar-group">
-              <ul class="sidebar-sublist sidebar-root">
-                {{- range $pages }}
-                {{- if ne .Slug "footer" }}
-                <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
-                {{- end }}
-                {{- end }}
-              </ul>
-            </li>
-          {{- end }}
-          {{- if $hubs }}
-            {{- range $hubs }}
-            {{- $hub := . }}
-            {{- $hubParents := (index $hub.FM "hub") }}
-            {{- if not $hubParents }}
-            {{- $hubIsActive := eq $hub.Slug $.Page.Slug }}
-            {{- if $groups }}
-              {{- range $groups }}
-                {{- if eq .Key $hub.Slug }}
-                  {{- range .Items }}
-                    {{- if eq .Slug $.Page.Slug }}{{- $hubIsActive = true }}{{- end }}
-                  {{- end }}
-                {{- end }}
-              {{- end }}
-            {{- end }}
-            <li class="sidebar-group hub-group {{ if $hubIsActive }}hub-open{{ end }}">
-              <a class="hub-link {{ if $hubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $hub.Path }}">{{ $hub.Title }}</a>
-              <ul class="sidebar-sublist">
-                {{- if $groups }}
-                  {{- range $groups }}
-                    {{- if eq .Key $hub.Slug }}
-                      {{- range .Items }}
-                      <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
-                      {{- end }}
-                    {{- end }}
-                  {{- end }}
-                {{- end }}
-                {{- range $hubs }}
-                  {{- $childHub := . }}
-                  {{- $childParents := (index $childHub.FM "hub") }}
-                  {{- if $childParents }}
-                    {{- range $childParents }}
-                      {{- if eq . $hub.Slug }}
-                        {{- $childHubIsActive := eq $childHub.Slug $.Page.Slug }}
-                        {{- if $groups }}
-                          {{- range $groups }}
-                            {{- if eq .Key $childHub.Slug }}
-                              {{- range .Items }}
-                                {{- if eq .Slug $.Page.Slug }}{{- $childHubIsActive = true }}{{- end }}
-                              {{- end }}
-                            {{- end }}
-                          {{- end }}
-                        {{- end }}
-                      <li class="sidebar-group hub-group {{ if $childHubIsActive }}hub-open{{ end }}">
-                        <a class="hub-link {{ if $childHubIsActive }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL $childHub.Path }}">{{ $childHub.Title }}</a>
-                        {{- if $groups }}
-                        <ul class="sidebar-sublist">
-                          {{- range $groups }}
-                            {{- if eq .Key $childHub.Slug }}
-                              {{- range .Items }}
-                              <li><a class="{{ if eq .Slug $.Page.Slug }}is-active{{ end }}" href="{{ printf "%s%s" $.BaseURL .Path }}">{{ .Title }}</a></li>
-                              {{- end }}
-                            {{- end }}
-                          {{- end }}
-                        </ul>
-                        {{- end }}
-                      </li>
-                      {{- end }}
-                    {{- end }}
-                  {{- end }}
-                {{- end }}
-              </ul>
-            </li>
-            {{- end }}
-            {{- end }}
-          {{- end }}
-        </ul>
-      </aside>
-      <div class="content-area">
-        {{- if not $isHome }}
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="{{ $homePath }}">Home</a>
-          {{- if ne $crumbHub3Slug "" }}
-          <span>/</span>
-          <a href="{{ printf "%s%s" $.BaseURL $crumbHub3Path }}">{{ $crumbHub3Title }}</a>
-          {{- end }}
-          {{- if ne $crumbHub2Slug "" }}
-          <span>/</span>
-          <a href="{{ printf "%s%s" $.BaseURL $crumbHub2Path }}">{{ $crumbHub2Title }}</a>
-          {{- end }}
-          {{- if ne $crumbHub1Slug "" }}
-          <span>/</span>
-          <a href="{{ printf "%s%s" $.BaseURL $crumbHub1Path }}">{{ $crumbHub1Title }}</a>
-          {{- end }}
-          <span>/</span>
-          <span>{{ .Title }}</span>
-        </nav>
-        {{- end }}
-        {{ .Body }}
-      </div>
-    </div>
-  </main>
-
-  {{ template "search_trigger.html" . }}
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-built muted" data-site-footer-content>
-        Этот сайт сделан из Obsidian с помощью <a href="{{ printf "%sobsidian-website-hub/" $homePath }}">Notepub</a>
-      </div>
-    </div>
-  </footer>
-  <script src="{{ .AssetsBase }}/main.js"></script>
+  <script src="{{ .AssetsBase }}/wiki.js" defer></script>
+  {{- /* Счётчики — из settings в config.yaml, пустой номер ничего не выводит. Очередь заводится сразу, а сами
+         скрипты грузятся после загрузки страницы, когда браузер свободен: визит не теряется — вызовы ждут в
+         очереди. Номер склеивается со строкой, а не подставляется внутрь кавычек: в <script> шаблон сам отдаёт
+         значение строкой в кавычках. Так же устроено на antonlozhkin.ru. */}}
+  {{- if or .Settings.metrika_id .Settings.ga_id }}
+  <script>
+    (function () {
+      var urls = [];
+      {{- if .Settings.metrika_id }}
+      window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
+      window.ym.l = 1 * new Date();
+      ym(Number({{ .Settings.metrika_id }}), "init", { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
+      urls.push("https://mc.yandex.ru/metrika/tag.js?id=" + {{ .Settings.metrika_id }});
+      {{- end }}
+      {{- if .Settings.ga_id }}
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      gtag("js", new Date());
+      gtag("config", {{ .Settings.ga_id }});
+      urls.push("https://www.googletagmanager.com/gtag/js?id=" + {{ .Settings.ga_id }});
+      {{- end }}
+      function load() {
+        urls.forEach(function (src) {
+          for (var j = 0; j < document.scripts.length; j++) if (document.scripts[j].src === src) return;
+          var s = document.createElement("script"); s.async = true; s.src = src; document.head.appendChild(s);
+        });
+      }
+      function schedule() {
+        if (window.requestIdleCallback) requestIdleCallback(load, { timeout: 3000 });
+        else setTimeout(load, 1200);
+      }
+      if (document.readyState === "complete") schedule(); else window.addEventListener("load", schedule);
+    })();
+  </script>
+  {{- end }}
+  {{- if .Settings.metrika_id }}
+  <noscript><div><img src="https://mc.yandex.ru/watch/{{ .Settings.metrika_id }}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  {{- end }}
 </body>
 </html>

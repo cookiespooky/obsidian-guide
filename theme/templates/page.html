@@ -1,9 +1,11 @@
-<article class="content">
-  <header class="page-hero">
-    <h1>{{ .Title }}</h1>
-    {{- if .Page.Description }}
-    <p class="lead">{{ .Page.Description }}</p>
+<article class="page">
+  <header class="page__head">
+    <h1>{{ .Page.Title }}</h1>
+    {{- if .FM.lead }}
+    <p class="lead">{{ .FM.lead }}</p>
     {{- end }}
   </header>
-  {{ .Body }}
+  <div class="prose">
+    {{ .Body }}
+  </div>
 </article>

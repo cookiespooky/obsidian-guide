@@ -1,20 +1,17 @@
-{{- $related := .Collections.related_pages.Items -}}
-<article class="content">
-  {{ .Body }}
-</article>
-
-{{- if $related }}
-<section class="section">
-  <h2 class="section-title">Related Materials</h2>
-  <div class="grid grid-3">
-    {{- range $related }}
-    <a class="card card-link" href="{{ printf "%s%s" $.BaseURL .Path }}">
-      <h3>{{ .Title }}</h3>
-      {{- if .Description }}
-      <p>{{ .Description }}</p>
-      {{- end }}
-    </a>
+<article class="page">
+  <header class="page__head">
+    <p class="eyebrow">Гайд по Obsidian</p>
+    <h1>{{ .Page.Title }}</h1>
+    {{- if .FM.lead }}
+    <p class="lead">{{ .FM.lead }}</p>
     {{- end }}
+  </header>
+  <div class="prose">
+    {{ .Body }}
   </div>
-</section>
-{{- end }}
+  {{- /* Подпись под каждой статьёй: автор и куда идти дальше — шаблоны хранилища Life OS. */}}
+  <footer class="byline">
+    <p>Автор: <a href="{{ .Settings.author_url }}" rel="author noopener">{{ .Settings.author_name }}</a></p>
+    <p><a href="{{ .BaseURL }}/{{ .Settings.templates_slug }}/">Готовое хранилище для работы с ИИ — шаблоны Life OS →</a></p>
+  </footer>
+</article>

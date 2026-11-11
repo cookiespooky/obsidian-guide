@@ -12,8 +12,6 @@ tags:
 draft: false
 noindex: false
 ---
-# Почему большинство пользователей Obsidian в итоге создают свою систему
-
 Когда люди начинают использовать Obsidian, они почти всегда ищут **идеальную систему организации заметок**.
 
 Чаще всего путь выглядит примерно так:
@@ -195,4 +193,4 @@ Archive
 [[zettelkasten|Zettelkasten]]  
 [[pkm|PKM]]
 [[atomic-notes|Atomic Notes]]
-[[self-tracker|Self Tracker]]
+[[lifeos-method|Метод Life OS]]

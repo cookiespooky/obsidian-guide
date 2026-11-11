@@ -10,8 +10,6 @@ tags:
 draft: false
 noindex: false
 ---
-# Плагины Obsidian
-  
 Obsidian можно расширять с помощью **плагинов**.  
   
 Плагины добавляют новые функции:  

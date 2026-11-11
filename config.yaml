@@ -1,32 +1,54 @@
+# Гайд по Obsidian. Репозиторий cookiespooky/obsidian-guide, GitHub Pages; адрес — antonlozhkin.ru/obsidian-guide/
+# (сайт antonlozhkin.ru на нашем сервере отдаёт его с GitHub Pages — projects/infra/site-pages-fallback.sh в np-personal).
+# Оформление — как у курса «Вайбкодинг с нуля» (vibewiki.github.io): тема взята оттуда целиком.
 site:
   id: obsidian-guide
-  base_url: "https://cookiespooky.github.io/obsidian-guide/" # must end with /
-  media_base_url: "https://cookiespooky.github.io/obsidian-guide/media/"
-  title: "Obsidian Guide"
-  description: "Методичка по Obsidian: быстрый старт, структура vault, связи заметок, daily notes и синхронизация."
-  default_og_image: "/assets/notepub.jpg"
+  base_url: "https://antonlozhkin.ru/obsidian-guide"
+  media_base_url: "https://antonlozhkin.ru/obsidian-guide/media"
+  title: "Гайд по Obsidian"
+  description: "Obsidian на русском: быстрый старт, связи заметок, daily notes, синхронизация, методы — и хранилище, с которым работает ИИ-агент."
+  default_og_image: "/media/og.png"          # рисует scripts/brand.py
+
 content:
   source: "local"
   local_dir: "./obsidian-guide"
+
+og_type_by_type:
+  home: "website"
+  page: "website"
+  hub: "website"
+  article: "article"
+
 paths:
   file_root: ./.notepub
   artifacts_dir: ./.notepub/artifacts
   snapshot_file: ./.notepub/snapshot/objects.json
   cache_root: ./.notepub/cache
+
 theme:
   dir: "."
   name: "theme"
   templates_subdir: "templates"
   assets_subdir: "assets"
+
 rules_path: "./rules.yaml"
+
 server:
-  listen: "127.0.0.1:8080"
+  listen: "127.0.0.1:8089"
+
+# Слова шаблона (theme/templates).
+settings:
+  site_name: "Гайд по Obsidian"
+  site_note: "Заметки, которые работают вместе с ИИ"
+  templates_slug: "lifeos-templates"     # «Шаблоны Life OS»: в шапке, внизу меню и под каждой статьёй
+  vibewiki_url: "https://vibewiki.github.io/"
+  author_name: "Антон Ложкин"
+  author_label: "Об авторе"
+  author_url: "https://antonlozhkin.ru/"
 
 robots:
   disallow:
     - "/private/"
-  extra: |
-    # Custom rules here
 
 cache:
   html_ttl_seconds: 600

@@ -1,0 +1,78 @@
+{{- /* Боковое меню: разделы гайда и статьи каждого. Печатается дважды — слева на широком экране и в выдвижном
+       ящике справа на узком. Раздел — страница-хаб, статьи — те, у кого в шапке hub указан этот хаб
+       (коллекции sec_* в rules.yaml). Названия разделов вписаны сюда. Оформление — как у курса «Вайбкодинг с нуля». */ -}}
+<nav class="side__nav" aria-label="Содержание гайда">
+  <div class="side__step side__about">
+    <p class="side__title"><span class="side__num">·</span><a href="{{ $.BaseURL }}/"{{ if $.IsHome }} aria-current="page"{{ end }}>О гайде</a></p>
+  </div>
+  <div class="side__step">
+    <p class="side__title"><span class="side__num">1</span>Быстрый старт</p>
+    <ul>
+      <li><a href="{{ $.BaseURL }}/quick-start/"{{ if eq "quick-start" $.Page.Slug }} aria-current="page"{{ end }}>Быстрый старт за 10 минут</a></li>
+      <li><a href="{{ $.BaseURL }}/obsidian-ai-agent/"{{ if eq "obsidian-ai-agent" $.Page.Slug }} aria-current="page"{{ end }}>Obsidian и ИИ-агент</a></li>
+    </ul>
+  </div>
+  <div class="side__step">
+    <p class="side__title"><span class="side__num">2</span><a class="side__hub" href="{{ $.BaseURL }}/guide/"{{ if eq "guide" $.Page.Slug }} aria-current="page"{{ end }}>Основы</a></p>
+    {{- if .Collections.sec_guide.Items }}
+    <ul>
+      {{- range .Collections.sec_guide.Items }}
+      <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+  <div class="side__step">
+    <p class="side__title"><span class="side__num">3</span><a class="side__hub" href="{{ $.BaseURL }}/plugins-hub/"{{ if eq "plugins-hub" $.Page.Slug }} aria-current="page"{{ end }}>Плагины</a></p>
+    {{- if .Collections.sec_plugins.Items }}
+    <ul>
+      {{- range .Collections.sec_plugins.Items }}
+      <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+  <div class="side__step">
+    <p class="side__title"><span class="side__num">4</span><a class="side__hub" href="{{ $.BaseURL }}/sync-hub/"{{ if eq "sync-hub" $.Page.Slug }} aria-current="page"{{ end }}>Синхронизация</a></p>
+    {{- if .Collections.sec_sync.Items }}
+    <ul>
+      {{- range .Collections.sec_sync.Items }}
+      <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+  <div class="side__step">
+    <p class="side__title"><span class="side__num">5</span><a class="side__hub" href="{{ $.BaseURL }}/methods-hub/"{{ if eq "methods-hub" $.Page.Slug }} aria-current="page"{{ end }}>Методы</a></p>
+    {{- if .Collections.sec_methods.Items }}
+    <ul>
+      {{- range .Collections.sec_methods.Items }}
+      <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+  <div class="side__step">
+    <p class="side__title"><span class="side__num">6</span><a class="side__hub" href="{{ $.BaseURL }}/articles-hub/"{{ if eq "articles-hub" $.Page.Slug }} aria-current="page"{{ end }}>Статьи</a></p>
+    {{- if .Collections.sec_articles.Items }}
+    <ul>
+      {{- range .Collections.sec_articles.Items }}
+      <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+  <div class="side__step">
+    <p class="side__title"><span class="side__num">7</span><a class="side__hub" href="{{ $.BaseURL }}/resources-hub/"{{ if eq "resources-hub" $.Page.Slug }} aria-current="page"{{ end }}>Ресурсы</a></p>
+    {{- if .Collections.sec_resources.Items }}
+    <ul>
+      {{- range .Collections.sec_resources.Items }}
+      <li><a href="{{ $.BaseURL }}/{{ .Slug }}/"{{ if eq .Slug $.Page.Slug }} aria-current="page"{{ end }}>{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+    {{- end }}
+  </div>
+  <div class="side__step side__after">
+    <p class="side__title"><span class="side__num">→</span><a href="{{ $.BaseURL }}/{{ $.Settings.templates_slug }}/"{{ if eq $.Page.Slug $.Settings.templates_slug }} aria-current="page"{{ end }}>Шаблоны Life OS</a></p>
+  </div>
+</nav>

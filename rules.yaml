@@ -2,7 +2,7 @@ version: 1
 
 fields:
   required: ["type", "slug", "title"]
-  optional: ["description", "draft", "hub", "related", "order", "noindex", "jsonld", "tags"]
+  optional: ["description", "draft", "hub", "related", "order", "noindex", "jsonld", "tags", "lead"]
   defaults:
     draft: false
 
@@ -16,14 +16,14 @@ fm_schema:
 
 types:
   home:
-    template: "home.html"
+    template: "page.html"
     permalink: "/"
     include_in:
       sitemap: true
       search: false
 
   page:
-    template: "article.html"
+    template: "page.html"
     permalink: "/{{ slug }}/"
     include_in:
       sitemap: true
@@ -41,13 +41,6 @@ types:
     permalink: "/{{ slug }}/"
     include_in:
       sitemap: true
-      search: false
-
-  search:
-    template: "search.html"
-    permalink: "/search/"
-    include_in:
-      sitemap: false
       search: false
 
 links:
@@ -143,6 +136,102 @@ collections:
         dir: "asc"
       item_limit: 200
 
+  # раздел бокового меню (theme/templates/partials/sidebar.html): статьи, у которых hub — «guide»
+  sec_guide:
+    kind: "backrefs"
+    materialize: true
+    link: "belongs_to"
+    to_slug: "guide"
+    where:
+      all:
+        - fm_eq: { key: "draft", value: false }
+        - type_in: ["article"]
+    sort:
+      by: "fm.order"
+      dir: "asc"
+      nulls_last: true
+    limit: 100
+
+  # раздел бокового меню (theme/templates/partials/sidebar.html): статьи, у которых hub — «plugins-hub»
+  sec_plugins:
+    kind: "backrefs"
+    materialize: true
+    link: "belongs_to"
+    to_slug: "plugins-hub"
+    where:
+      all:
+        - fm_eq: { key: "draft", value: false }
+        - type_in: ["article"]
+    sort:
+      by: "fm.order"
+      dir: "asc"
+      nulls_last: true
+    limit: 100
+
+  # раздел бокового меню (theme/templates/partials/sidebar.html): статьи, у которых hub — «sync-hub»
+  sec_sync:
+    kind: "backrefs"
+    materialize: true
+    link: "belongs_to"
+    to_slug: "sync-hub"
+    where:
+      all:
+        - fm_eq: { key: "draft", value: false }
+        - type_in: ["article"]
+    sort:
+      by: "fm.order"
+      dir: "asc"
+      nulls_last: true
+    limit: 100
+
+  # раздел бокового меню (theme/templates/partials/sidebar.html): статьи, у которых hub — «methods-hub»
+  sec_methods:
+    kind: "backrefs"
+    materialize: true
+    link: "belongs_to"
+    to_slug: "methods-hub"
+    where:
+      all:
+        - fm_eq: { key: "draft", value: false }
+        - type_in: ["article"]
+    sort:
+      by: "fm.order"
+      dir: "asc"
+      nulls_last: true
+    limit: 100
+
+  # раздел бокового меню (theme/templates/partials/sidebar.html): статьи, у которых hub — «articles-hub»
+  sec_articles:
+    kind: "backrefs"
+    materialize: true
+    link: "belongs_to"
+    to_slug: "articles-hub"
+    where:
+      all:
+        - fm_eq: { key: "draft", value: false }
+        - type_in: ["article"]
+    sort:
+      by: "fm.order"
+      dir: "asc"
+      nulls_last: true
+    limit: 100
+
+  # раздел бокового меню (theme/templates/partials/sidebar.html): статьи, у которых hub — «resources-hub»
+  sec_resources:
+    kind: "backrefs"
+    materialize: true
+    link: "belongs_to"
+    to_slug: "resources-hub"
+    where:
+      all:
+        - fm_eq: { key: "draft", value: false }
+        - type_in: ["article"]
+    sort:
+      by: "fm.order"
+      dir: "asc"
+      nulls_last: true
+    limit: 100
+
   hub_items:
     kind: "backrefs"
     materialize: false
@@ -197,7 +286,6 @@ artifacts:
 validation:
   single_page_of_type:
     home: 1
-    search: 1
   duplicate_route:
     action: "error"
   unknown_type:

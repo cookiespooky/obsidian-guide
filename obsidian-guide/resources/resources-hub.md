@@ -10,8 +10,6 @@ tags:
 draft: false
 noindex: false
 ---
-# Полезные ресурсы по Obsidian  
-  
 Если вы используете Obsidian, рано или поздно возникает желание расширить систему.  
   
 На этой странице собраны полезные ресурсы:  
@@ -25,9 +23,9 @@ noindex: false
   
 ---  
   
-# Основные ресурсы  
+## Основные ресурсы  
   
-## Официальный сайт  
+### Официальный сайт  
   
 https://obsidian.md  
   
@@ -35,7 +33,7 @@ https://obsidian.md
   
 ---  
   
-## Официальная документация  
+### Официальная документация  
   
 https://help.obsidian.md  
   
@@ -43,7 +41,7 @@ https://help.obsidian.md
   
 ---  
   
-## Community Plugins  
+### Community Plugins  
   
 Список всех плагинов сообщества.  
   
@@ -51,13 +49,13 @@ https://obsidian.md/plugins
   
 ---  
   
-# Полезные плагины  
+## Полезные плагины  
   
 Вот несколько плагинов, которые часто используют пользователи Obsidian.  
   
 ---  
   
-## Calendar  
+### Calendar  
   
 Добавляет календарь для навигации по **Daily Notes**.  
   
@@ -65,7 +63,7 @@ https://obsidian.md/plugins
   
 ---  
   
-## Templater  
+### Templater  
   
 Расширяет возможности шаблонов.  
   
@@ -77,7 +75,7 @@ https://obsidian.md/plugins
   
 ---  
   
-## Tasks  
+### Tasks  
   
 Плагин для управления задачами внутри заметок.  
   
@@ -85,7 +83,7 @@ https://obsidian.md/plugins
   
 ---  
   
-## Dataview  
+### Dataview  
   
 Один из самых мощных плагинов Obsidian.  
   
@@ -99,7 +97,36 @@ https://obsidian.md/plugins
   
 ---  
   
-# Полезные статьи  
+## ИИ и Obsidian
+
+### Вайбкодинг с нуля
+
+https://vibewiki.github.io/
+
+Открытый курс для тех, кто не программист: как оплатить и поставить Claude Code, работать в VS Code, ставить
+задачи нейросети. Оттуда же — оформление этого гайда.
+
+---
+
+### Life OS
+
+https://lifeos.antonlozhkin.ru/
+
+Экосистема управления процессами на хранилище Obsidian: входящие из Telegram и почты, документы, пульт с телефона.
+Шаблоны хранилища — [[lifeos-templates|Шаблоны Life OS]], метод — [[lifeos-method|Метод Life OS]].
+
+---
+
+### Claude Code и Codex
+
+https://code.claude.com/docs/en/overview  
+https://github.com/openai/codex
+
+Документация агентов, которые работают с папкой хранилища. Как подключить — [[obsidian-ai-agent|Obsidian и ИИ-агент]].
+
+---
+
+## Полезные статьи  
   
 Если вы только начинаете использовать Obsidian, эти материалы помогут быстрее разобраться.  
   
@@ -113,7 +140,7 @@ https://obsidian.md/plugins
   
 ---  
   
-# Минимальный набор для старта  
+## Минимальный набор для старта  
   
 Чтобы начать использовать Obsidian, достаточно:  
   
@@ -127,7 +154,7 @@ https://obsidian.md/plugins
   
 ---  
   
-# Развитие системы  
+## Развитие системы  
   
 Со временем Obsidian может превратиться в:  
   

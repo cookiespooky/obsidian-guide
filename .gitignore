@@ -18,3 +18,4 @@ notepub
 .vscode/
 .obsidian/
 *.swp
+.bin/
