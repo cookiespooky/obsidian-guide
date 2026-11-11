@@ -21,7 +21,7 @@ noindex: false
 - три инструкции: разобрать входящие, записать про человека, завести задачу
 - плагин Tasks уже внутри — остаётся разрешить сторонние плагины
 
-**Скоро** — ссылка на скачивание появится здесь.
+**[Скачать бесплатно](https://github.com/cookiespooky/lifeos-template/archive/refs/heads/main.zip)** — архив с GitHub. Шаблон открыт: [github.com/cookiespooky/lifeos-template](https://github.com/cookiespooky/lifeos-template).
 
 ---
 
