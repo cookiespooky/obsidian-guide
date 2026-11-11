@@ -97,18 +97,29 @@
     sum.addEventListener('click', function (e) {
       e.preventDefault();
       var closing = d.open && !d.classList.contains('is-closing');
-      var from = list.getBoundingClientRect().height;
+      // у закрытого <details> Chrome всё равно отдаёт полную высоту списка — от закрытого начинаем с нуля
+      var from = d.open ? list.getBoundingClientRect().height : 0;
       if (anim) anim.cancel();
       if (closing) {
         d.classList.add('is-closing');
         anim = list.animate([{ height: from + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 220, easing: 'ease' });
         anim.onfinish = function () { d.open = false; d.classList.remove('is-closing'); anim = null; };
       } else {
+        // открыть: список ставится с нулевой высотой, а высота меряется в следующем кадре — сразу после d.open
+        // браузер (Safari) ещё не разложил содержимое, и анимация шла бы от 0 до 0, то есть мгновенно
         d.classList.remove('is-closing');
+        list.style.height = (from || 0) + 'px';
+        list.style.opacity = from ? '1' : '0';
         d.open = true;
-        var to = list.scrollHeight;
-        anim = list.animate([{ height: (from || 0) + 'px', opacity: 0 }, { height: to + 'px', opacity: 1 }], { duration: 240, easing: 'ease' });
-        anim.onfinish = function () { anim = null; };
+        requestAnimationFrame(function () {
+          list.style.height = 'auto';
+          var to = list.getBoundingClientRect().height;
+          list.style.height = (from || 0) + 'px';
+          anim = list.animate([{ height: (from || 0) + 'px', opacity: from ? 1 : 0 }, { height: to + 'px', opacity: 1 }], { duration: 240, easing: 'ease' });
+          list.style.height = '';
+          list.style.opacity = '';
+          anim.onfinish = function () { anim = null; };
+        });
       }
     });
   });
