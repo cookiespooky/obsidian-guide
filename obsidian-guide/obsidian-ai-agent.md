@@ -31,16 +31,19 @@ noindex: false
 
 - **Obsidian** и хранилище — любая папка с заметками
 - **подписка** на Claude (для Claude Code) или ChatGPT (для Codex)
-- **VS Code** или Cursor — редактор, в котором агент работает вкладкой рядом с файлами
+- **где агент будет работать** — подойдёт любое из этого:
+  - **VS Code** или **Cursor** — редактор, где агент открыт вкладкой рядом с файлами;
+  - **приложение Claude или Codex** для компьютера — открываете в нём папку хранилища, и агент работает с ней без редактора;
+  - **[Life OS](https://lifeos.antonlozhkin.ru/)** — пульт с чатом поверх хранилища, открывается и с телефона.
 
-Если вы ни разу не ставили такие программы — всё по шагам описано в открытом курсе [«Вайбкодинг с нуля»](https://vibewiki.github.io/): [что понадобится](https://vibewiki.github.io/chto-ponadobitsya/), [как оплатить подписку](https://vibewiki.github.io/kak-oplatit-podpisku/), [как установить Claude Code](https://vibewiki.github.io/kak-ustanovit-claude-code/), [что где в VS Code](https://vibewiki.github.io/chto-takoe-vs-code/).
+Если вы ни разу не ставили такие программы — всё по шагам описано в открытом курсе [«Вайбкодинг с нуля»](https://vibewiki.github.io/): [что понадобится](https://vibewiki.github.io/chto-ponadobitsya/), [как оплатить подписку](https://vibewiki.github.io/kak-oplatit-podpisku/), [как установить Claude Code](https://vibewiki.github.io/kak-ustanovit-claude-code/), [VS Code для вайбкодинга](https://vibewiki.github.io/chto-takoe-vs-code/).
 
 ---
 
 ## Как подключить
 
-1. Откройте папку хранилища в VS Code: «Файл» → «Открыть папку».
-2. Запустите агента в этой папке — вкладка Claude Code или Codex.
+1. Откройте папку хранилища там, где будет работать агент: в VS Code или Cursor — «Файл» → «Открыть папку», в приложении Claude или Codex — выбрать папку при начале работы.
+2. Запустите агента в этой папке — вкладка Claude Code или Codex в редакторе или новый разговор в приложении.
 3. Положите в корень хранилища файл `AGENTS.md` (для Claude Code — ещё `CLAUDE.md` с одной строкой `@AGENTS.md`): где что лежит и как с этим обращаться. Агент читает его в начале каждого разговора.
 
 Без `AGENTS.md` агент тоже работает, но каждый раз заново угадывает, как устроено хранилище. С ним — знает.
